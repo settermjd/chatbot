@@ -2,6 +2,12 @@
 
 namespace ChatBot;
 
+use Zend\Filter\PregReplace;
+use Zend\Filter\StringTrim;
+use Zend\Filter\StripNewlines;
+use Zend\InputFilter\Input;
+use Zend\InputFilter\InputFilter;
+
 /**
  * Class PhpManualChatBotResponse
  * @package ChatBot
@@ -41,9 +47,32 @@ class PhpManualChatBotResponse
         $methodSynopsis,
         $methodDescription
     ) {
-        $this->versionInfo = $versionInfo;
-        $this->referenceName = $referenceName;
-        $this->methodSynopsis = $methodSynopsis;
-        $this->methodDescription = $methodDescription;
+        $this->versionInfo = $this->filterParameter($versionInfo);
+        $this->referenceName = $this->filterParameter($referenceName);
+        $this->methodSynopsis = $this->filterParameter($methodSynopsis);
+        $this->methodDescription = $this->filterParameter($methodDescription);
+    }
+
+    /**
+     * Clean up a parameter, removing unnecessary information
+     * @param string $parameter
+     * @return string
+     */
+    private function filterParameter($parameter)
+    {
+        $input = new Input('parameter');
+        $input->getFilterChain()
+            ->attach(new StringTrim())
+            ->attach(new StripNewlines())
+            ->attach(new PregReplace([
+                'pattern' => '!\s+!',
+                'replacement' => ' '
+            ]));
+
+        $inputFilter = new InputFilter();
+        $inputFilter->add($input);
+        $inputFilter->setData(['parameter' => $parameter]);
+
+        return $inputFilter->getValue('parameter');
     }
 }
