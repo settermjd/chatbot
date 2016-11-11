@@ -1,0 +1,1156 @@
+HTTP/1.1 200 OK
+Date: Wed, 11 Nov 2016 12:00:00 GMT
+Connection: close
+Server: php.net
+Content-Type: application/html
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de" class="js flexbox flexboxlegacy datauri gr__php_net"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHP: mysql_query - Manual </title>
+    <link rel="shortcut icon" href="http://php.net/favicon.ico">
+    <link rel="search" type="application/opensearchdescription+xml" href="http://php.net/phpnetimprovedsearch.src" title="Add PHP.net search">
+    <link rel="alternate" type="application/atom+xml" href="http://php.net/releases/feed.php" title="PHP Release feed">
+    <link rel="alternate" type="application/atom+xml" href="http://php.net/feed.atom" title="PHP: Hypertext Preprocessor">
+
+    <link rel="canonical" href="http://php.net/manual/de/function.mysql-query.php">
+    <link rel="shorturl" href="http://php.net/mysql-query">
+    <link rel="alternate" href="http://php.net/mysql-query" hreflang="x-default">
+
+    <link rel="contents" href="http://php.net/manual/de/index.php">
+    <link rel="index" href="http://php.net/manual/de/ref.mysql.php">
+    <link rel="prev" href="http://php.net/manual/de/function.mysql-ping.php">
+    <link rel="next" href="http://php.net/manual/de/function.mysql-real-escape-string.php">
+
+    <link rel="alternate" href="http://php.net/manual/en/function.mysql-query.php" hreflang="en">
+    <link rel="alternate" href="http://php.net/manual/pt_BR/function.mysql-query.php" hreflang="pt_BR">
+    <link rel="alternate" href="http://php.net/manual/zh/function.mysql-query.php" hreflang="zh">
+    <link rel="alternate" href="http://php.net/manual/fr/function.mysql-query.php" hreflang="fr">
+    <link rel="alternate" href="http://php.net/manual/de/function.mysql-query.php" hreflang="de">
+    <link rel="alternate" href="http://php.net/manual/ja/function.mysql-query.php" hreflang="ja">
+    <link rel="alternate" href="http://php.net/manual/kr/function.mysql-query.php" hreflang="kr">
+    <link rel="alternate" href="http://php.net/manual/ro/function.mysql-query.php" hreflang="ro">
+    <link rel="alternate" href="http://php.net/manual/ru/function.mysql-query.php" hreflang="ru">
+    <link rel="alternate" href="http://php.net/manual/es/function.mysql-query.php" hreflang="es">
+    <link rel="alternate" href="http://php.net/manual/tr/function.mysql-query.php" hreflang="tr">
+
+    <link rel="stylesheet" type="text/css" href="http://php.net/cached.php?t=1421837618&amp;f=/fonts/Fira/fira.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="http://php.net/cached.php?t=1421837618&amp;f=/fonts/Font-Awesome/css/fontello.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="http://php.net/cached.php?t=1478800802&amp;f=/styles/theme-base.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="http://php.net/cached.php?t=1449787206&amp;f=/styles/theme-medium.css" media="screen">
+
+    <!--[if lte IE 7]>
+    <link rel="stylesheet" type="text/css" href="http://php.net/styles/workarounds.ie7.css" media="screen">
+    <![endif]-->
+
+    <!--[if lte IE 8]>
+    <script type="text/javascript">
+        window.brokenIE = true;
+    </script>
+    <![endif]-->
+
+    <!--[if lte IE 9]>
+    <link rel="stylesheet" type="text/css" href="http://php.net/styles/workarounds.ie9.css" media="screen">
+    <![endif]-->
+
+    <!--[if IE]>
+    <script type="text/javascript" src="http://php.net/js/ext/html5.js"></script>
+    <![endif]-->
+
+    <base href="http://php.net/manual/de/function.mysql-query.php">
+
+</head>
+<body class="docs " data-gr-c-s-loaded="true" style="">
+
+<nav id="head-nav" class="navbar navbar-fixed-top">
+    <div class="navbar-inner clearfix">
+        <a href="/" class="brand"><img src="/images/logo.php" width="48" height="24" alt="php"></a>
+        <div id="mainmenu-toggle-overlay"></div>
+        <input type="checkbox" id="mainmenu-toggle">
+        <ul class="nav">
+            <li class=""><a href="/downloads">Downloads</a></li>
+            <li class="active"><a href="/docs.php">Documentation</a></li>
+            <li class=""><a href="/get-involved">Get Involved</a></li>
+            <li class=""><a href="/support">Help</a></li>
+        </ul>
+        <form class="navbar-search" id="topsearch" action="/search.php">
+            <input type="hidden" name="show" value="quickref">
+            <span class="twitter-typeahead" style="position: relative; display: inline-block;"><input class="tt-hint search-query" type="text" autocomplete="off" spellcheck="off" disabled="" style="position: absolute; top: 0px; left: 0px; border-color: transparent; box-shadow: none; background-attachment: scroll; background-clip: border-box; background-color: rgb(255, 255, 255); background-image: none; background-origin: padding-box; background-size: auto; background-position: 0% 0%; background-repeat: repeat repeat;"><input type="search" name="pattern" class="search-query tt-query" placeholder="Search" accesskey="s" autocomplete="off" spellcheck="false" dir="auto" style="position: relative; vertical-align: top; background-color: transparent;"><input type="submit" style="visibility: hidden; position: fixed"><span style="position: absolute; left: -9999px; visibility: hidden; white-space: nowrap; font-family: 'Fira Sans', 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; font-style: normal; font-variant-ligatures: normal; font-variant-position: normal; font-variant-caps: normal; font-variant-numeric: normal; font-variant-alternates: normal; font-variant-east-asian: normal; font-weight: 400; word-spacing: 0px; letter-spacing: 0px; text-indent: 0px; text-rendering: auto; text-transform: none;"></span><span class="tt-dropdown-menu" style="position: absolute; top: 100%; left: 0px; z-index: 100; display: none;"></span></span>
+        </form>
+    </div>
+    <div id="flash-message"></div>
+</nav>
+<div class="headsup"><a href="/index.php#id2016-11-10-3">PHP 5.6.28 Released</a></div>
+<nav id="trick"><div><dl>
+    <dt><a href="/manual/en/getting-started.php">Getting Started</a></dt>
+    <dd><a href="/manual/en/introduction.php">Introduction</a></dd>
+    <dd><a href="/manual/en/tutorial.php">A simple tutorial</a></dd>
+    <dt><a href="/manual/en/langref.php">Language Reference</a></dt>
+    <dd><a href="/manual/en/language.basic-syntax.php">Basic syntax</a></dd>
+    <dd><a href="/manual/en/language.types.php">Types</a></dd>
+    <dd><a href="/manual/en/language.variables.php">Variables</a></dd>
+    <dd><a href="/manual/en/language.constants.php">Constants</a></dd>
+    <dd><a href="/manual/en/language.expressions.php">Expressions</a></dd>
+    <dd><a href="/manual/en/language.operators.php">Operators</a></dd>
+    <dd><a href="/manual/en/language.control-structures.php">Control Structures</a></dd>
+    <dd><a href="/manual/en/language.functions.php">Functions</a></dd>
+    <dd><a href="/manual/en/language.oop5.php">Classes and Objects</a></dd>
+    <dd><a href="/manual/en/language.namespaces.php">Namespaces</a></dd>
+    <dd><a href="/manual/en/language.errors.php">Errors</a></dd>
+    <dd><a href="/manual/en/language.exceptions.php">Exceptions</a></dd>
+    <dd><a href="/manual/en/language.generators.php">Generators</a></dd>
+    <dd><a href="/manual/en/language.references.php">References Explained</a></dd>
+    <dd><a href="/manual/en/reserved.variables.php">Predefined Variables</a></dd>
+    <dd><a href="/manual/en/reserved.exceptions.php">Predefined Exceptions</a></dd>
+    <dd><a href="/manual/en/reserved.interfaces.php">Predefined Interfaces and Classes</a></dd>
+    <dd><a href="/manual/en/context.php">Context options and parameters</a></dd>
+    <dd><a href="/manual/en/wrappers.php">Supported Protocols and Wrappers</a></dd>
+</dl>
+    <dl>
+        <dt><a href="/manual/en/security.php">Security</a></dt>
+        <dd><a href="/manual/en/security.intro.php">Introduction</a></dd>
+        <dd><a href="/manual/en/security.general.php">General considerations</a></dd>
+        <dd><a href="/manual/en/security.cgi-bin.php">Installed as CGI binary</a></dd>
+        <dd><a href="/manual/en/security.apache.php">Installed as an Apache module</a></dd>
+        <dd><a href="/manual/en/security.sessions.php">Session Security</a></dd>
+        <dd><a href="/manual/en/security.filesystem.php">Filesystem Security</a></dd>
+        <dd><a href="/manual/en/security.database.php">Database Security</a></dd>
+        <dd><a href="/manual/en/security.errors.php">Error Reporting</a></dd>
+        <dd><a href="/manual/en/security.globals.php">Using Register Globals</a></dd>
+        <dd><a href="/manual/en/security.variables.php">User Submitted Data</a></dd>
+        <dd><a href="/manual/en/security.magicquotes.php">Magic Quotes</a></dd>
+        <dd><a href="/manual/en/security.hiding.php">Hiding PHP</a></dd>
+        <dd><a href="/manual/en/security.current.php">Keeping Current</a></dd>
+        <dt><a href="/manual/en/features.php">Features</a></dt>
+        <dd><a href="/manual/en/features.http-auth.php">HTTP authentication with PHP</a></dd>
+        <dd><a href="/manual/en/features.cookies.php">Cookies</a></dd>
+        <dd><a href="/manual/en/features.sessions.php">Sessions</a></dd>
+        <dd><a href="/manual/en/features.xforms.php">Dealing with XForms</a></dd>
+        <dd><a href="/manual/en/features.file-upload.php">Handling file uploads</a></dd>
+        <dd><a href="/manual/en/features.remote-files.php">Using remote files</a></dd>
+        <dd><a href="/manual/en/features.connection-handling.php">Connection handling</a></dd>
+        <dd><a href="/manual/en/features.persistent-connections.php">Persistent Database Connections</a></dd>
+        <dd><a href="/manual/en/features.safe-mode.php">Safe Mode</a></dd>
+        <dd><a href="/manual/en/features.commandline.php">Command line usage</a></dd>
+        <dd><a href="/manual/en/features.gc.php">Garbage Collection</a></dd>
+        <dd><a href="/manual/en/features.dtrace.php">DTrace Dynamic Tracing</a></dd>
+    </dl>
+    <dl>
+        <dt><a href="/manual/en/funcref.php">Function Reference</a></dt>
+        <dd><a href="/manual/en/refs.basic.php.php">Affecting PHP's Behaviour</a></dd>
+        <dd><a href="/manual/en/refs.utilspec.audio.php">Audio Formats Manipulation</a></dd>
+        <dd><a href="/manual/en/refs.remote.auth.php">Authentication Services</a></dd>
+        <dd><a href="/manual/en/refs.utilspec.cmdline.php">Command Line Specific Extensions</a></dd>
+        <dd><a href="/manual/en/refs.compression.php">Compression and Archive Extensions</a></dd>
+        <dd><a href="/manual/en/refs.creditcard.php">Credit Card Processing</a></dd>
+        <dd><a href="/manual/en/refs.crypto.php">Cryptography Extensions</a></dd>
+        <dd><a href="/manual/en/refs.database.php">Database Extensions</a></dd>
+        <dd><a href="/manual/en/refs.calendar.php">Date and Time Related Extensions</a></dd>
+        <dd><a href="/manual/en/refs.fileprocess.file.php">File System Related Extensions</a></dd>
+        <dd><a href="/manual/en/refs.international.php">Human Language and Character Encoding Support</a></dd>
+        <dd><a href="/manual/en/refs.utilspec.image.php">Image Processing and Generation</a></dd>
+        <dd><a href="/manual/en/refs.remote.mail.php">Mail Related Extensions</a></dd>
+        <dd><a href="/manual/en/refs.math.php">Mathematical Extensions</a></dd>
+        <dd><a href="/manual/en/refs.utilspec.nontext.php">Non-Text MIME Output</a></dd>
+        <dd><a href="/manual/en/refs.fileprocess.process.php">Process Control Extensions</a></dd>
+        <dd><a href="/manual/en/refs.basic.other.php">Other Basic Extensions</a></dd>
+        <dd><a href="/manual/en/refs.remote.other.php">Other Services</a></dd>
+        <dd><a href="/manual/en/refs.search.php">Search Engine Extensions</a></dd>
+        <dd><a href="/manual/en/refs.utilspec.server.php">Server Specific Extensions</a></dd>
+        <dd><a href="/manual/en/refs.basic.session.php">Session Extensions</a></dd>
+        <dd><a href="/manual/en/refs.basic.text.php">Text Processing</a></dd>
+        <dd><a href="/manual/en/refs.basic.vartype.php">Variable and Type Related Extensions</a></dd>
+        <dd><a href="/manual/en/refs.webservice.php">Web Services</a></dd>
+        <dd><a href="/manual/en/refs.utilspec.windows.php">Windows Only Extensions</a></dd>
+        <dd><a href="/manual/en/refs.xml.php">XML Manipulation</a></dd>
+        <dd><a href="/manual/en/refs.ui.php">GUI Extensions</a></dd>
+    </dl>
+    <dl>
+        <dt>Keyboard Shortcuts</dt><dt>?</dt>
+        <dd>This help</dd>
+        <dt>j</dt>
+        <dd>Next menu item</dd>
+        <dt>k</dt>
+        <dd>Previous menu item</dd>
+        <dt>g p</dt>
+        <dd>Previous man page</dd>
+        <dt>g n</dt>
+        <dd>Next man page</dd>
+        <dt>G</dt>
+        <dd>Scroll to bottom</dd>
+        <dt>g g</dt>
+        <dd>Scroll to top</dd>
+        <dt>g h</dt>
+        <dd>Goto homepage</dd>
+        <dt>g s</dt>
+        <dd>Goto search<br>(current page)</dd>
+        <dt>/</dt>
+        <dd>Focus search box</dd>
+    </dl></div></nav>
+<div id="goto">
+    <div class="search">
+        <div class="text"></div>
+        <div class="results"><ul></ul></div>
+    </div>
+</div>
+
+<div id="breadcrumbs" class="clearfix">
+    <div id="breadcrumbs-inner">
+        <div class="next">
+            <a href="function.mysql-real-escape-string.php">
+                mysql_real_escape_string »
+            </a>
+        </div>
+        <div class="prev">
+            <a href="function.mysql-ping.php">
+                « mysql_ping        </a>
+        </div>
+        <ul>
+            <li><a href="index.php">PHP-Handbuch</a></li>      <li><a href="funcref.php">Funktionsreferenz</a></li>      <li><a href="refs.database.php">Datenbankerweiterungen</a></li>      <li><a href="refs.database.vendors.php">Anbieterspezifische Datenbankerweiterungen</a></li>      <li><a href="set.mysqlinfo.php">MySQL</a></li>      <li><a href="book.mysql.php">MySQL (Original)</a></li>      <li><a href="ref.mysql.php">MySQL Funktionen</a></li>      </ul>
+    </div>
+</div>
+
+
+
+
+<div id="layout" class="clearfix">
+    <section id="layout-content">
+        <div class="page-tools">
+            <div class="change-language">
+                <form action="/manual/change.php" method="get" id="changelang" name="changelang">
+                    <fieldset>
+                        <label for="changelang-langs">Change language:</label>
+                        <select onchange="document.changelang.submit()" name="page" id="changelang-langs">
+                            <option value="en/function.mysql-query.php">English</option>
+                            <option value="pt_BR/function.mysql-query.php">Brazilian Portuguese</option>
+                            <option value="zh/function.mysql-query.php">Chinese (Simplified)</option>
+                            <option value="fr/function.mysql-query.php">French</option>
+                            <option value="de/function.mysql-query.php" selected="selected">German</option>
+                            <option value="ja/function.mysql-query.php">Japanese</option>
+                            <option value="kr/function.mysql-query.php">Korean</option>
+                            <option value="ro/function.mysql-query.php">Romanian</option>
+                            <option value="ru/function.mysql-query.php">Russian</option>
+                            <option value="es/function.mysql-query.php">Spanish</option>
+                            <option value="tr/function.mysql-query.php">Turkish</option>
+                            <option value="help-translate.php">Other</option>
+                        </select>
+                    </fieldset>
+                </form>
+            </div>
+            <div class="edit-bug">
+                <a href="https://edit.php.net/?project=PHP&amp;perm=de/function.mysql-query.php">Edit</a>
+                <a href="https://bugs.php.net/report.php?bug_type=Documentation+problem&amp;manpage=function.mysql-query">Report a Bug</a>
+            </div>
+        </div><div id="function.mysql-query" class="refentry">
+        <div class="refnamediv">
+            <h1 class="refname">mysql_query</h1>
+            <p class="verinfo">(PHP 4, PHP 5)</p><p class="refpurpose"><span class="refname">mysql_query</span> — <span class="dc-title">Sendet eine Anfrage an MySQL</span></p>
+
+        </div>
+
+        <div id="function.mysql-query-refsynopsisdiv">
+            <div class="warning"><strong class="warning">Warnung</strong>
+                <p class="para">Diese Erweiterung ist seit PHP 5.5.0 als veraltet markiert und wurde in PHP 7.0.0 entfernt werden. Verwenden Sie stattdessen die Erweiterungen <a href="book.mysqli.php" class="link">MySQLi</a> oder <a href="ref.pdo-mysql.php" class="link">PDO_MySQL</a>.
+                    Weitere Informationen finden Sie im Ratgeber <a href="mysqlinfo.api.choosing.php" class="link">MySQL: Auswahl einer API</a> und den <a href="faq.databases.php#faq.databases.mysql.deprecated" class="link">zugehörigen FAQ</a>.
+                    Alternativen zu dieser Funktion umfassen:</p>
+                <ul class="simplelist">
+                    <li class="member"><span class="function"><a href="mysqli.query.php" class="function">mysqli_query()</a></span></li>
+                    <li class="member"><span class="methodname"><a href="pdo.query.php" class="methodname">PDO::query()</a></span></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="refsect1 description" id="refsect1-function.mysql-query-description">
+            <h3 class="title">Beschreibung<a class="genanchor" href="#refsect1-function.mysql-query-description"> ¶</a></h3>
+            <div class="methodsynopsis dc-description">
+                <span class="type"><a href="language.pseudo-types.php#language.types.mixed" class="type mixed">mixed</a></span> <span class="methodname"><strong>mysql_query</strong></span>
+                ( <span class="methodparam"><span class="type">string</span> <code class="parameter">$query</code></span>
+                [, <span class="methodparam"><span class="type">resource</span> <code class="parameter">$link_identifier</code><span class="initializer"> = NULL</span></span>
+                ] )</div>
+
+            <p class="para rdfs-comment">
+                <span class="function"><strong>mysql_query()</strong></span> sendet eine einzelne Abfrage (mehrere
+                Abfragen werden nicht unterstützt) zu dem momentan aktiven Schema auf dem
+                Server, der mit der übergebenen
+                Verbings-Kennung <code class="parameter">Verbindungs-Kennung</code> assoziiert ist.
+            </p>
+        </div>
+
+
+        <div class="refsect1 parameters" id="refsect1-function.mysql-query-parameters">
+            <h3 class="title">Parameter-Liste<a class="genanchor" href="#refsect1-function.mysql-query-parameters"> ¶</a></h3>
+            <dl>
+
+
+                <dt>
+                    <code class="parameter">query</code></dt>
+
+                <dd>
+
+                    <p class="para">
+                        Eine SQL Anweisung
+                    </p>
+                    <p class="para">
+                        Die Anweisung sollte nicht mit einem Semikolon abgeschlossen werden.
+                        Werte innerhalb der Abfrage
+                        sollten <a href="function.mysql-real-escape-string.php" class="link">korrekt
+                        maskiert werden</a>.
+                    </p>
+                </dd>
+
+
+                <dt>
+                    <code class="parameter">
+                        Verbindungs-Kennung</code></dt>
+                <dd>
+                    <p class="para">Die MySQL-Verbindung.
+                        Wird die Verbindungskennung nicht angegeben, wird die letzte durch
+                        <span class="function"><a href="function.mysql-connect.php" class="function">mysql_connect()</a></span> geöffnete Verbindung angenommen. Falls
+                        keine solche Verbindung gefunden wird, wird versucht, eine Verbindung
+                        aufzubauen, wie es beim Aufruf von <span class="function"><a href="function.mysql-connect.php" class="function">mysql_connect()</a></span> ohne
+                        Angabe von Argumenten der Fall wäre. Falls zufällig keine Verbindung gefunden
+                        oder aufgebaut werden kann, wird eine Warnung der Stufe
+                        <strong><code>E_WARNING</code></strong> erzeugt.</p></dd>
+
+            </dl>
+
+
+        </div>
+
+
+        <div class="refsect1 returnvalues" id="refsect1-function.mysql-query-returnvalues">
+            <h3 class="title">Rückgabewerte<a class="genanchor" href="#refsect1-function.mysql-query-returnvalues"> ¶</a></h3>
+            <p class="para">
+                Für SELECT, SHOW, DESCRIBE, EXPLAIN und andere Anweisungen, die eine
+                Ergebnismenge zurückgeben, gibt <span class="function"><strong>mysql_query()</strong></span>
+                eine Kennung <span class="type"><a href="language.types.resource.php" class="type resource">resource</a></span> bei Erfolg zurück oder <strong><code>FALSE</code></strong> bei
+                Fehlern.
+            </p>
+            <p class="para">
+                Für alle anderen von SQL Anweisungen wie INSERT, UPDATE, DELETE, DROP, etc,
+                gibt <span class="function"><strong>mysql_query()</strong></span> <strong><code>TRUE</code></strong> bei Erfolg zurück oder <strong><code>FALSE</code></strong>
+                bei Fehlern.
+            </p>
+            <p class="para">
+                Die zurückgegebene Ergebnis Ressource sollte
+                an <span class="function"><a href="function.mysql-fetch-array.php" class="function">mysql_fetch_array()</a></span> oder andere Funktionen, die mit
+                Ergebnis Tabellen umgehen, übergeben werden, um auf die erhaltenen Daten
+                zuzuzugreifen.
+            </p>
+            <p class="para">
+                Nutzen sie <span class="function"><a href="function.mysql-num-rows.php" class="function">mysql_num_rows()</a></span> um zu erfahren, wieviele
+                Zeilen für eine SELECT Anweisungen zurückgegeben wurden oder
+                <span class="function"><a href="function.mysql-affected-rows.php" class="function">mysql_affected_rows()</a></span> um zu erfahren, wieviele Zeilen
+                von einer DELETE, INSERT, REPLACE oder UPDATE Anweisung betroffen waren.
+            </p>
+            <p class="para">
+                <span class="function"><strong>mysql_query()</strong></span> wird ebenfalls fehlschlagen und <strong><code>FALSE</code></strong>
+                zurückgeben, wenn der Nutzer nicht die Rechte hat, auf die Tabellen, die in
+                der Anweisung referenziert wurden, zuzugreifen.
+            </p>
+        </div>
+
+
+        <div class="refsect1 examples" id="refsect1-function.mysql-query-examples">
+            <h3 class="title">Beispiele<a class="genanchor" href="#refsect1-function.mysql-query-examples"> ¶</a></h3>
+            <div class="example" id="example-1932">
+                <p><strong>Beispiel #1 Ungültige Anfrage</strong></p>
+                <div class="example-contents"><p>
+                    Die folgende Anfrage ist syntaktisch falsch, deshalb liefert
+                    <span class="function"><strong>mysql_query()</strong></span> <strong><code>FALSE</code></strong> zurück:
+                </p></div>
+                <div class="example-contents">
+                    <div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br>$result&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">mysql_query</span><span style="color: #007700">(</span><span style="color: #DD0000">'SELECT&nbsp;*&nbsp;WHERE&nbsp;1=1'</span><span style="color: #007700">);<br>if&nbsp;(!</span><span style="color: #0000BB">$result</span><span style="color: #007700">)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;die(</span><span style="color: #DD0000">'Ungültige&nbsp;Anfrage:&nbsp;'&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">mysql_error</span><span style="color: #007700">());<br>}<br><br></span><span style="color: #0000BB">?&gt;</span>
+</span>
+                    </code></div>
+                </div>
+
+            </div>
+
+            <div class="example" id="example-1933">
+                <p><strong>Beispiel #2 Gültige Anfrage</strong></p>
+                <div class="example-contents"><p>
+                    Die folgende Abfrage ist gültig, daher gibt <span class="function"><strong>mysql_query()</strong></span>
+                    ein Ergebnis <span class="type"><a href="language.types.resource.php" class="type resource">resource</a></span> zurück.
+                </p></div>
+                <div class="example-contents">
+                    <div class="phpcode"><code><span style="color: #000000">
+<span style="color: #0000BB">&lt;?php<br></span><span style="color: #FF8000">//&nbsp;Dies&nbsp;kömmze&nbsp;z.B.&nbsp;durch&nbsp;einen&nbsp;Nutzer&nbsp;angegeben&nbsp;werden<br></span><span style="color: #0000BB">$firstname&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'fred'</span><span style="color: #007700">;<br></span><span style="color: #0000BB">$lastname&nbsp;&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'fox'</span><span style="color: #007700">;<br><br></span><span style="color: #FF8000">//&nbsp;Formuliere&nbsp;Abfrage<br>//&nbsp;Dies&nbsp;ist&nbsp;die&nbsp;beste&nbsp;Art,&nbsp;eine&nbsp;SQL&nbsp;Abfrage&nbsp;duerchzuführen<br>//&nbsp;Für&nbsp;weitere&nbsp;Beispiele,&nbsp;siehe:&nbsp;mysql_real_escape_string()<br></span><span style="color: #0000BB">$query&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">sprintf</span><span style="color: #007700">(</span><span style="color: #DD0000">"SELECT&nbsp;firstname,&nbsp;lastname,&nbsp;address,&nbsp;age&nbsp;FROM&nbsp;friends&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;WHERE&nbsp;firstname='%s'&nbsp;AND&nbsp;lastname='%s'"</span><span style="color: #007700">,<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">mysql_real_escape_string</span><span style="color: #007700">(</span><span style="color: #0000BB">$firstname</span><span style="color: #007700">),<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">mysql_real_escape_string</span><span style="color: #007700">(</span><span style="color: #0000BB">$lastname</span><span style="color: #007700">));<br><br></span><span style="color: #FF8000">//&nbsp;Führe&nbsp;Abfrage&nbsp;aus<br></span><span style="color: #0000BB">$result&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">mysql_query</span><span style="color: #007700">(</span><span style="color: #0000BB">$query</span><span style="color: #007700">);<br><br></span><span style="color: #FF8000">//&nbsp;Prüfe&nbsp;Ergebnis<br>//&nbsp;Dies&nbsp;zeigt&nbsp;die&nbsp;tatsächliche&nbsp;Abfrage,&nbsp;die&nbsp;an&nbsp;MySQL&nbsp;gesandt&nbsp;wurde&nbsp;und&nbsp;den<br>//&nbsp;Fehler.&nbsp;Nützlich&nbsp;bei&nbsp;der&nbsp;Fehlersuche<br></span><span style="color: #007700">if&nbsp;(!</span><span style="color: #0000BB">$result</span><span style="color: #007700">)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$message&nbsp;&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'Ungültige&nbsp;Abfrage:&nbsp;'&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">mysql_error</span><span style="color: #007700">()&nbsp;.&nbsp;</span><span style="color: #DD0000">"\n"</span><span style="color: #007700">;<br>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$message&nbsp;</span><span style="color: #007700">.=&nbsp;</span><span style="color: #DD0000">'Gesamte&nbsp;Abfrage:&nbsp;'&nbsp;</span><span style="color: #007700">.&nbsp;</span><span style="color: #0000BB">$query</span><span style="color: #007700">;<br>&nbsp;&nbsp;&nbsp;&nbsp;die(</span><span style="color: #0000BB">$message</span><span style="color: #007700">);<br>}<br><br></span><span style="color: #FF8000">//&nbsp;Nutze&nbsp;Ergebnis<br>//&nbsp;Der&nbsp;Versuch&nbsp;$result&nbsp;auszugeben,&nbsp;erlaubt&nbsp;keine&nbsp;Zugriff&nbsp;auf&nbsp;die&nbsp;Informationen<br>//&nbsp;der&nbsp;Ressource.<br>//&nbsp;Eine&nbsp;der&nbsp;MySQ&nbsp;result&nbsp;Funktionen&nbsp;muss&nbsp;genutzt&nbsp;werden<br>//&nbsp;Siehe&nbsp;auch:&nbsp;mysql_result(),&nbsp;mysql_fetch_array(),&nbsp;mysql_fetch_row(),&nbsp;etc.<br></span><span style="color: #007700">while&nbsp;(</span><span style="color: #0000BB">$row&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">mysql_fetch_assoc</span><span style="color: #007700">(</span><span style="color: #0000BB">$result</span><span style="color: #007700">))&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #0000BB">$row</span><span style="color: #007700">[</span><span style="color: #DD0000">'firstname'</span><span style="color: #007700">];<br>&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #0000BB">$row</span><span style="color: #007700">[</span><span style="color: #DD0000">'lastname'</span><span style="color: #007700">];<br>&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #0000BB">$row</span><span style="color: #007700">[</span><span style="color: #DD0000">'address'</span><span style="color: #007700">];<br>&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #0000BB">$row</span><span style="color: #007700">[</span><span style="color: #DD0000">'age'</span><span style="color: #007700">];<br>}<br><br></span><span style="color: #FF8000">//&nbsp;Gebe&nbsp;Ressourcen,&nbsp;die&nbsp;mit&nbsp;der&nbsp;Ergebnismenge&nbsp;assoziiert&nbsp;sind,&nbsp;frei<br>//&nbsp;Dies&nbsp;geshieht&nbsp;am&nbsp;Ende&nbsp;eines&nbsp;Skriptes&nbsp;automatisch<br></span><span style="color: #0000BB">mysql_free_result</span><span style="color: #007700">(</span><span style="color: #0000BB">$result</span><span style="color: #007700">);<br></span><span style="color: #0000BB">?&gt;</span>
+</span>
+                    </code></div>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="refsect1 seealso" id="refsect1-function.mysql-query-seealso">
+            <h3 class="title">Siehe auch<a class="genanchor" href="#refsect1-function.mysql-query-seealso"> ¶</a></h3>
+            <ul class="simplelist">
+                <li class="member"><span class="function"><a href="function.mysql-connect.php" class="function" rel="rdfs-seeAlso">mysql_connect()</a> - Öffnet eine Verbindung zu einem MySQL-Server</span></li>
+                <li class="member"><span class="function"><a href="function.mysql-error.php" class="function" rel="rdfs-seeAlso">mysql_error()</a> - Liefert den Fehlertext der zuvor ausgeführten MySQL Operation</span></li>
+                <li class="member"><span class="function"><a href="function.mysql-real-escape-string.php" class="function" rel="rdfs-seeAlso">mysql_real_escape_string()</a> - Maskiert spezielle Zeichen innerhalb eines Strings für die
+   Verwendung in einer SQL-Anweisung</span></li>
+                <li class="member"><span class="function"><a href="function.mysql-result.php" class="function" rel="rdfs-seeAlso">mysql_result()</a> - Liefert Ergebnis</span></li>
+                <li class="member"><span class="function"><a href="function.mysql-fetch-assoc.php" class="function" rel="rdfs-seeAlso">mysql_fetch_assoc()</a> - Liefert einen Datensatz als assoziatives Array</span></li>
+                <li class="member"><span class="function"><a href="function.mysql-unbuffered-query.php" class="function" rel="rdfs-seeAlso">mysql_unbuffered_query()</a> - Sendet eine SQL Anfrage an MySQL, ohne Ergebniszeilen abzuholen und zu puffern</span></li>
+            </ul>
+
+        </div>
+
+
+    </div>
+        <section id="usernotes">
+            <div class="head">
+                <span class="action"><a href="/manual/add-note.php?sect=function.mysql-query&amp;redirect=http://php.net/manual/de/function.mysql-query.php"><img src="/images/notes-add@2x.png" alt="add a note" width="12" height="12"> <small>add a note</small></a></span>
+                <h3 class="title">User Contributed Notes <span class="count">25 notes</span></h3>
+            </div><div id="allnotes">
+            <div class="note" id="76848">  <div class="votes">
+                <div id="Vu76848">
+                    <a href="/manual/vote-note.php?id=76848&amp;page=function.mysql-query&amp;vote=up" title="Vote up!" class="usernotes-voteu">up</a>
+                </div>
+                <div id="Vd76848">
+                    <a href="/manual/vote-note.php?id=76848&amp;page=function.mysql-query&amp;vote=down" title="Vote down!" class="usernotes-voted">down</a>
+                </div>
+                <div class="tally" id="V76848" title="56% like this...">
+                    4
+                </div>
+            </div>
+                <a href="#76848" class="name">
+                    <strong class="user"><em>jack dot whoami at gmail dot com</em></strong></a><a class="genanchor" href="#76848"> ¶</a><div class="date" title="2007-08-01 06:13"><strong>9 years ago</strong></div>
+                <div class="text" id="Hcom76848">
+                    <div class="phpcode"><code><span class="html">
+Simulating an atomic operation for application locks using mysql.<br><br>$link = mysql_connect('localhost', 'user', 'pass');<br>if (!$link) {<br>&nbsp; &nbsp; die('Not connected : ' . mysql_error());<br>}<br><br>// make foo the current db<br>$db_selected = mysql_select_db('foo', $link);<br>if (!$db_selected) {<br>&nbsp; &nbsp; die ('Can\'t use foo : ' . mysql_error());<br>}<br><br>$q = "update `table` set `LOCK`='F' where `ID`='1'";<br>$lock = mysql_affected_rows();<br><br>If we assume<br>&nbsp; &nbsp;&nbsp; NOT LOCKED = "" (empty string)<br>&nbsp; &nbsp;&nbsp; LOCKED = 'F'<br><br>then if the column LOCK had a value other than F (normally should be an empty string) the update statement sets it to F and set the affected rows to 1. Which mean than we got the lock.<br>If affected rows return 0 then the value of that column was already F and somebody else has the lock.<br><br>The secret lies in the following statement taken from the mysql manual:<br>"If you set a column to the value it currently has, MySQL notices this and does not update it."<br><br>Of course all this is possible if the all application processes agree on the locking algorithm.</span>
+                    </code></div>
+                </div>
+            </div>
+            <div class="note" id="101488">  <div class="votes">
+                <div id="Vu101488">
+                    <a href="/manual/vote-note.php?id=101488&amp;page=function.mysql-query&amp;vote=up" title="Vote up!" class="usernotes-voteu">up</a>
+                </div>
+                <div id="Vd101488">
+                    <a href="/manual/vote-note.php?id=101488&amp;page=function.mysql-query&amp;vote=down" title="Vote down!" class="usernotes-voted">down</a>
+                </div>
+                <div class="tally" id="V101488" title="51% like this...">
+                    4
+                </div>
+            </div>
+                <a href="#101488" class="name">
+                    <strong class="user"><em>ddlshack [at] gmail.dot.com</em></strong></a><a class="genanchor" href="#101488"> ¶</a><div class="date" title="2010-12-20 09:12"><strong>5 years ago</strong></div>
+                <div class="text" id="Hcom101488">
+                    <div class="phpcode"><code><span class="html">
+Use this to neatly insert data into a mysql table:<br><br><span class="default">&lt;?php<br></span><span class="keyword">function </span><span class="default">mysql_insert</span><span class="keyword">(</span><span class="default">$table</span><span class="keyword">, </span><span class="default">$inserts</span><span class="keyword">) {<br>&nbsp; &nbsp; </span><span class="default">$values </span><span class="keyword">= </span><span class="default">array_map</span><span class="keyword">(</span><span class="string">'mysql_real_escape_string'</span><span class="keyword">, </span><span class="default">array_values</span><span class="keyword">(</span><span class="default">$inserts</span><span class="keyword">));<br>&nbsp; &nbsp; </span><span class="default">$keys </span><span class="keyword">= </span><span class="default">array_keys</span><span class="keyword">(</span><span class="default">$inserts</span><span class="keyword">);<br>&nbsp; &nbsp; &nbsp; &nbsp; <br>&nbsp; &nbsp; return </span><span class="default">mysql_query</span><span class="keyword">(</span><span class="string">'INSERT INTO `'</span><span class="keyword">.</span><span class="default">$table</span><span class="keyword">.</span><span class="string">'` (`'</span><span class="keyword">.</span><span class="default">implode</span><span class="keyword">(</span><span class="string">'`,`'</span><span class="keyword">, </span><span class="default">$keys</span><span class="keyword">).</span><span class="string">'`) VALUES (\''</span><span class="keyword">.</span><span class="default">implode</span><span class="keyword">(</span><span class="string">'\',\''</span><span class="keyword">, </span><span class="default">$values</span><span class="keyword">).</span><span class="string">'\')'</span><span class="keyword">);<br>}<br></span><span class="default">?&gt;<br></span><br>For example:<br><br><span class="default">&lt;?php<br><br>mysql_insert</span><span class="keyword">(</span><span class="string">'cars'</span><span class="keyword">, array(<br>&nbsp; &nbsp; </span><span class="string">'make' </span><span class="keyword">=&gt; </span><span class="string">'Aston Martin'</span><span class="keyword">,<br>&nbsp; &nbsp; </span><span class="string">'model' </span><span class="keyword">=&gt; </span><span class="string">'DB9'</span><span class="keyword">,<br>&nbsp; &nbsp; </span><span class="string">'year' </span><span class="keyword">=&gt; </span><span class="string">'2009'</span><span class="keyword">,<br>));<br></span><span class="default">?&gt;</span>
+</span>
+                    </code></div>
+                </div>
+            </div>
+            <div class="note" id="76991">  <div class="votes">
+                <div id="Vu76991">
+                    <a href="/manual/vote-note.php?id=76991&amp;page=function.mysql-query&amp;vote=up" title="Vote up!" class="usernotes-voteu">up</a>
+                </div>
+                <div id="Vd76991">
+                    <a href="/manual/vote-note.php?id=76991&amp;page=function.mysql-query&amp;vote=down" title="Vote down!" class="usernotes-voted">down</a>
+                </div>
+                <div class="tally" id="V76991" title="52% like this...">
+                    2
+                </div>
+            </div>
+                <a href="#76991" class="name">
+                    <strong class="user"><em>halion at gmail dot com</em></strong></a><a class="genanchor" href="#76991"> ¶</a><div class="date" title="2007-08-09 02:53"><strong>9 years ago</strong></div>
+                <div class="text" id="Hcom76991">
+                    <div class="phpcode"><code><span class="html">
+mysql_query doesnt support multiple queries, a way round this is to use innodb and transactions<br><br>this db class/function will accept an array of arrays of querys, it will auto check every line for affected rows in db, if one is 0 it will rollback and return false, else it will commit and return true, the call to the function is simple and is easy to read etc<br>----------<br><br>class MySQLDB<br>{<br>&nbsp;&nbsp; private $connection;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; // The MySQL database connection<br><br>&nbsp;&nbsp; /* Class constructor */<br>&nbsp;&nbsp; function MySQLDB(){<br>&nbsp; &nbsp; &nbsp; /* Make connection to database */<br>&nbsp; &nbsp; &nbsp; $this-&gt;connection = mysql_connect(DB_SERVER, DB_USER, DB_PASS) or die(mysql_error());<br>&nbsp; &nbsp; &nbsp; mysql_select_db(DB_NAME, $this-&gt;connection) or die(mysql_error());<br>&nbsp;&nbsp; }<br><br>&nbsp;&nbsp; /* Transactions functions */<br><br>&nbsp;&nbsp; function begin(){<br>&nbsp; &nbsp; &nbsp; $null = mysql_query("START TRANSACTION", $this-&gt;connection);<br>&nbsp; &nbsp; &nbsp; return mysql_query("BEGIN", $this-&gt;connection);<br>&nbsp;&nbsp; }<br><br>&nbsp;&nbsp; function commit(){<br>&nbsp; &nbsp; &nbsp; return mysql_query("COMMIT", $this-&gt;connection);<br>&nbsp;&nbsp; }<br>&nbsp;&nbsp; <br>&nbsp;&nbsp; function rollback(){<br>&nbsp; &nbsp; &nbsp; return mysql_query("ROLLBACK", $this-&gt;connection);<br>&nbsp;&nbsp; }<br><br>&nbsp;&nbsp; function transaction($q_array){<br>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; $retval = 1;<br><br>&nbsp; &nbsp; &nbsp; $this-&gt;begin();<br><br>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; foreach($q_array as $qa){<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; $result = mysql_query($qa['query'], $this-&gt;connection);<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; if(mysql_affected_rows() == 0){ $retval = 0; }<br>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; }<br><br>&nbsp; &nbsp; &nbsp; if($retval == 0){<br>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; $this-&gt;rollback();<br>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return false;<br>&nbsp; &nbsp; &nbsp; }else{<br>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; $this-&gt;commit();<br>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; return true;<br>&nbsp; &nbsp; &nbsp; }<br>&nbsp;&nbsp; }<br><br>};<br><br>/* Create database connection object */<br>$database = new MySQLDB;<br><br>// then from anywhere else simply put the transaction queries in an array or arrays like this:<br><br>&nbsp;&nbsp; function function(){<br>&nbsp; &nbsp; &nbsp; global $database;<br><br>&nbsp; &nbsp; &nbsp; $q = array ( <br>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; array("query" =&gt; "UPDATE table WHERE something = 'something'"),<br>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; array("query" =&gt; "UPDATE table WHERE something_else = 'something_else'"),<br>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; array("query" =&gt; "DELETE FROM table WHERE something_else2 = 'something_else2'"),<br>&nbsp; &nbsp; &nbsp; );<br><br>&nbsp; &nbsp; &nbsp; $database-&gt;transaction($q);<br><br>&nbsp;&nbsp; }</span>
+                    </code></div>
+                </div>
+            </div>
+            <div class="note" id="55811">  <div class="votes">
+                <div id="Vu55811">
+                    <a href="/manual/vote-note.php?id=55811&amp;page=function.mysql-query&amp;vote=up" title="Vote up!" class="usernotes-voteu">up</a>
+                </div>
+                <div id="Vd55811">
+                    <a href="/manual/vote-note.php?id=55811&amp;page=function.mysql-query&amp;vote=down" title="Vote down!" class="usernotes-voted">down</a>
+                </div>
+                <div class="tally" id="V55811" title="52% like this...">
+                    1
+                </div>
+            </div>
+                <a href="#55811" class="name">
+                    <strong class="user"><em>ix at nivelzero dot ro</em></strong></a><a class="genanchor" href="#55811"> ¶</a><div class="date" title="2005-08-14 03:07"><strong>11 years ago</strong></div>
+                <div class="text" id="Hcom55811">
+                    <div class="phpcode"><code><span class="html">
+here's a script for parsing a *.sql file (tested only on dumps created with phpMyAdmin) which is short and simple (why do people say "here's a short and simple script" and it has a 100 lines?). the script skips comments and allows ; to be present within the querys<br><br><span class="default">&lt;?php<br>&nbsp; </span><span class="keyword">function </span><span class="default">parse_mysql_dump</span><span class="keyword">(</span><span class="default">$url</span><span class="keyword">){<br>&nbsp; &nbsp; </span><span class="default">$file_content </span><span class="keyword">= </span><span class="default">file</span><span class="keyword">(</span><span class="default">$url</span><span class="keyword">);<br>&nbsp; &nbsp; </span><span class="default">$query </span><span class="keyword">= </span><span class="string">""</span><span class="keyword">;<br>&nbsp; &nbsp; foreach(</span><span class="default">$file_content </span><span class="keyword">as </span><span class="default">$sql_line</span><span class="keyword">){<br>&nbsp; &nbsp; &nbsp; if(</span><span class="default">trim</span><span class="keyword">(</span><span class="default">$sql_line</span><span class="keyword">) != </span><span class="string">"" </span><span class="keyword">&amp;&amp; </span><span class="default">strpos</span><span class="keyword">(</span><span class="default">$sql_line</span><span class="keyword">, </span><span class="string">"--"</span><span class="keyword">) === </span><span class="default">false</span><span class="keyword">){<br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="default">$query </span><span class="keyword">.= </span><span class="default">$sql_line</span><span class="keyword">;<br>&nbsp; &nbsp; &nbsp; &nbsp; if(</span><span class="default">preg_match</span><span class="keyword">(</span><span class="string">"/;[\040]*\$/"</span><span class="keyword">, </span><span class="default">$sql_line</span><span class="keyword">)){<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="default">$result </span><span class="keyword">= </span><span class="default">mysql_query</span><span class="keyword">(</span><span class="default">$query</span><span class="keyword">)or die(</span><span class="default">mysql_error</span><span class="keyword">());<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="default">$query </span><span class="keyword">= </span><span class="string">""</span><span class="keyword">;<br>&nbsp; &nbsp; &nbsp; &nbsp; }<br>&nbsp; &nbsp; &nbsp; }<br>&nbsp; &nbsp; }<br>&nbsp; }<br></span><span class="default">?&gt;</span>
+</span>
+                    </code></div>
+                </div>
+            </div>
+            <div class="note" id="85807">  <div class="votes">
+                <div id="Vu85807">
+                    <a href="/manual/vote-note.php?id=85807&amp;page=function.mysql-query&amp;vote=up" title="Vote up!" class="usernotes-voteu">up</a>
+                </div>
+                <div id="Vd85807">
+                    <a href="/manual/vote-note.php?id=85807&amp;page=function.mysql-query&amp;vote=down" title="Vote down!" class="usernotes-voted">down</a>
+                </div>
+                <div class="tally" id="V85807" title="51% like this...">
+                    1
+                </div>
+            </div>
+                <a href="#85807" class="name">
+                    <strong class="user"><em>Mr. Tim</em></strong></a><a class="genanchor" href="#85807"> ¶</a><div class="date" title="2008-09-18 11:42"><strong>8 years ago</strong></div>
+                <div class="text" id="Hcom85807">
+                    <div class="phpcode"><code><span class="html">
+It should be noted that mysql_query can generate an E_WARNING (not documented).&nbsp; The warning that I hit was when the db user did not have permission to execute a UDF. <br><br>Expected behavior would be like an Invalid SQL statement, where there is no E_WARNING generated by mysql_query.<br><br>Warning: mysql_query() [function.mysql-query]: Unable to save result set in filename.php<br><br>The mysql_errno is 1370 and the mysql_error is:<br><br>execute command denied to user 'username'@'%' for routine 'database_name.MyUDF'</span>
+                    </code></div>
+                </div>
+            </div>
+            <div class="note" id="79255">  <div class="votes">
+                <div id="Vu79255">
+                    <a href="/manual/vote-note.php?id=79255&amp;page=function.mysql-query&amp;vote=up" title="Vote up!" class="usernotes-voteu">up</a>
+                </div>
+                <div id="Vd79255">
+                    <a href="/manual/vote-note.php?id=79255&amp;page=function.mysql-query&amp;vote=down" title="Vote down!" class="usernotes-voted">down</a>
+                </div>
+                <div class="tally" id="V79255" title="51% like this...">
+                    1
+                </div>
+            </div>
+                <a href="#79255" class="name">
+                    <strong class="user"><em>masteracc0 at aol dot com</em></strong></a><a class="genanchor" href="#79255"> ¶</a><div class="date" title="2007-11-17 10:00"><strong>8 years ago</strong></div>
+                <div class="text" id="Hcom79255">
+                    <div class="phpcode"><code><span class="html">
+Keep in mind when dealing with PHP &amp; MySQL that sending a null-terminated string to a MySQL query can be misleading if you use echo($sql) in PHP because the null terminator may not be visible.<br><br>For example (this assumes connection is already made),<br>$string1 = "mystring\0";<br>$string2 = "mystring";<br><br>$query1 = "SELECT * FROM table WHERE mystring='".$string1."'"<br>$query2 = "SELECT * FROM table WHERE mystring='".$string2."'"<br> <br>$result1 = mysql_query($query1);<br><br>$result2 = mysql_query($query2);<br><br>//$result1 IS NOT EQUAL TO $result2 but will not provide an error<br><br>//but printing these queries to the screen will provide the same result<br>echo($result1);<br>echo($result2);<br><br>Not knowing this could lead to some mind-numbing troubleshooting when dealing with any strings with a null terminator.&nbsp; So now you know! :)</span>
+                    </code></div>
+                </div>
+            </div>
+            <div class="note" id="88602">  <div class="votes">
+                <div id="Vu88602">
+                    <a href="/manual/vote-note.php?id=88602&amp;page=function.mysql-query&amp;vote=up" title="Vote up!" class="usernotes-voteu">up</a>
+                </div>
+                <div id="Vd88602">
+                    <a href="/manual/vote-note.php?id=88602&amp;page=function.mysql-query&amp;vote=down" title="Vote down!" class="usernotes-voted">down</a>
+                </div>
+                <div class="tally" id="V88602" title="51% like this...">
+                    1
+                </div>
+            </div>
+                <a href="#88602" class="name">
+                    <strong class="user"><em>ialsoagree</em></strong></a><a class="genanchor" href="#88602"> ¶</a><div class="date" title="2009-01-30 08:24"><strong>7 years ago</strong></div>
+                <div class="text" id="Hcom88602">
+                    <div class="phpcode"><code><span class="html">
+When you run a select statement and receive a response, the data types of your response will be a string regardless of the data type of the column.<br><br><span class="default">&lt;?php<br></span><span class="comment">// Query to select an int column<br></span><span class="default">$query </span><span class="keyword">= </span><span class="string">'SELECT user_id FROM users WHERE user_id = 1'</span><span class="keyword">;<br></span><span class="default">$result </span><span class="keyword">= </span><span class="default">mysql_query</span><span class="keyword">(</span><span class="default">$query</span><span class="keyword">);<br></span><span class="default">$array </span><span class="keyword">= </span><span class="default">mysql_fetch_assoc</span><span class="keyword">(</span><span class="default">$result</span><span class="keyword">);<br><br></span><span class="comment">// Echoes: string<br></span><span class="keyword">echo </span><span class="default">gettype</span><span class="keyword">(</span><span class="default">$array</span><span class="keyword">[</span><span class="string">'user_id'</span><span class="keyword">]);<br></span><span class="default">?&gt;</span>
+</span>
+                    </code></div>
+                </div>
+            </div>
+            <div class="note" id="62247">  <div class="votes">
+                <div id="Vu62247">
+                    <a href="/manual/vote-note.php?id=62247&amp;page=function.mysql-query&amp;vote=up" title="Vote up!" class="usernotes-voteu">up</a>
+                </div>
+                <div id="Vd62247">
+                    <a href="/manual/vote-note.php?id=62247&amp;page=function.mysql-query&amp;vote=down" title="Vote down!" class="usernotes-voted">down</a>
+                </div>
+                <div class="tally" id="V62247" title="50% like this...">
+                    0
+                </div>
+            </div>
+                <a href="#62247" class="name"><strong class="user"><em>Anonymous</em></strong></a><a class="genanchor" href="#62247"> ¶</a><div class="date" title="2006-02-22 11:11"><strong>10 years ago</strong></div>
+                <div class="text" id="Hcom62247">
+                    <div class="phpcode"><code><span class="html">
+If, like me, you come from perl, you may not like having to use sprintf to 'simulate' placeholders that the DBI package from perl provides. I have created the following wrapper function for mysql_query() that allows you to use '?' characters to substitute values in your DB queries. Note that this is not how DBI in perl handles placeholders, but it's pretty similar.<br><br><span class="default">&lt;?php<br>&nbsp; &nbsp; </span><span class="comment">// mysql_query() wrapper. takes two arguments. first<br>&nbsp; &nbsp; // is the query with '?' placeholders in it. second argument<br>&nbsp; &nbsp; // is an array containing the values to substitute in place<br>&nbsp; &nbsp; // of the placeholders (in order, of course).<br>&nbsp; &nbsp; </span><span class="keyword">function </span><span class="default">mysql_prepare </span><span class="keyword">(</span><span class="default">$query</span><span class="keyword">, </span><span class="default">$phs </span><span class="keyword">= array()) {<br>&nbsp; &nbsp; &nbsp; &nbsp; foreach (</span><span class="default">$phs </span><span class="keyword">as </span><span class="default">$ph</span><span class="keyword">) {<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="default">$ph </span><span class="keyword">= </span><span class="string">"'" </span><span class="keyword">. </span><span class="default">mysql_real_escape_string</span><span class="keyword">(</span><span class="default">$ph</span><span class="keyword">) . </span><span class="string">"'"</span><span class="keyword">;<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="default">$query </span><span class="keyword">= </span><span class="default">substr_replace</span><span class="keyword">(<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="default">$query</span><span class="keyword">, </span><span class="default">$ph</span><span class="keyword">, </span><span class="default">strpos</span><span class="keyword">(</span><span class="default">$query</span><span class="keyword">, </span><span class="string">'?'</span><span class="keyword">), </span><span class="default">1<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="keyword">);<br>&nbsp; &nbsp; &nbsp; &nbsp; }<br><br>&nbsp; &nbsp; &nbsp; &nbsp; return </span><span class="default">mysql_query</span><span class="keyword">(</span><span class="default">$query</span><span class="keyword">);<br>&nbsp; &nbsp; }<br><br>&nbsp; &nbsp; </span><span class="comment">// sample usage<br>&nbsp; &nbsp; </span><span class="keyword">list(</span><span class="default">$user</span><span class="keyword">, </span><span class="default">$passwd</span><span class="keyword">) = array(</span><span class="string">'myuser'</span><span class="keyword">, </span><span class="string">'mypass'</span><span class="keyword">);<br><br>&nbsp; &nbsp; </span><span class="default">$sth </span><span class="keyword">= </span><span class="default">mysql_prepare</span><span class="keyword">(<br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="string">'select userid from users where userid=? and passwd=?'</span><span class="keyword">,<br>&nbsp; &nbsp; &nbsp; &nbsp; array(</span><span class="default">$user</span><span class="keyword">, </span><span class="default">sha1</span><span class="keyword">(</span><span class="default">$passwd</span><span class="keyword">))<br>&nbsp; &nbsp; );<br>&nbsp; &nbsp; </span><span class="default">$row </span><span class="keyword">= </span><span class="default">mysql_fetch_row</span><span class="keyword">(</span><span class="default">$sth</span><span class="keyword">);<br><br>&nbsp; &nbsp; </span><span class="comment">// successfull username &amp; password authentication<br>&nbsp; &nbsp; </span><span class="keyword">if (</span><span class="default">$row </span><span class="keyword">!== </span><span class="default">false</span><span class="keyword">) {<br>&nbsp; &nbsp; &nbsp; &nbsp; echo </span><span class="string">"logging in as '</span><span class="keyword">{</span><span class="default">$row</span><span class="keyword">[</span><span class="default">0</span><span class="keyword">]}</span><span class="string">'!\n"</span><span class="keyword">;<br>&nbsp; &nbsp; }<br><br>&nbsp; &nbsp; </span><span class="comment">// oops, wrong userid or passwd<br>&nbsp; &nbsp; </span><span class="keyword">else {<br>&nbsp; &nbsp; &nbsp; &nbsp; echo </span><span class="string">"Invalid username and password combination.\n"</span><span class="keyword">;<br>&nbsp; &nbsp; }<br></span><span class="default">?&gt;</span>
+</span>
+                    </code></div>
+                </div>
+            </div>
+            <div class="note" id="2984">  <div class="votes">
+                <div id="Vu2984">
+                    <a href="/manual/vote-note.php?id=2984&amp;page=function.mysql-query&amp;vote=up" title="Vote up!" class="usernotes-voteu">up</a>
+                </div>
+                <div id="Vd2984">
+                    <a href="/manual/vote-note.php?id=2984&amp;page=function.mysql-query&amp;vote=down" title="Vote down!" class="usernotes-voted">down</a>
+                </div>
+                <div class="tally" id="V2984" title="50% like this...">
+                    0
+                </div>
+            </div>
+                <a href="#2984" class="name">
+                    <strong class="user"><em>nikhil-php at nols dot com</em></strong></a><a class="genanchor" href="#2984"> ¶</a><div class="date" title="2000-01-02 12:38"><strong>16 years ago</strong></div>
+                <div class="text" id="Hcom2984">
+                    <div class="phpcode"><code><span class="html">
+When trying to INSERT or UPDATE and trying to put a large amount of text or data (blob) into a mysql table you might run into problems.
+<br>
+<br>In mysql.err you might see:
+<br>Packet too large (73904)
+<br>
+<br>To fix you just have to start up mysql with the option -O max_allowed_packet=maxsize
+<br>
+<br>You would just replace maxsize with the max size you want to insert, the default is 65536</span>
+                    </code></div>
+                </div>
+            </div>
+            <div class="note" id="70132">  <div class="votes">
+                <div id="Vu70132">
+                    <a href="/manual/vote-note.php?id=70132&amp;page=function.mysql-query&amp;vote=up" title="Vote up!" class="usernotes-voteu">up</a>
+                </div>
+                <div id="Vd70132">
+                    <a href="/manual/vote-note.php?id=70132&amp;page=function.mysql-query&amp;vote=down" title="Vote down!" class="usernotes-voted">down</a>
+                </div>
+                <div class="tally" id="V70132" title="48% like this...">
+                    -1
+                </div>
+            </div>
+                <a href="#70132" class="name">
+                    <strong class="user"><em>veyita_angi at hotmail dot com</em></strong></a><a class="genanchor" href="#70132"> ¶</a><div class="date" title="2006-10-04 09:35"><strong>10 years ago</strong></div>
+                <div class="text" id="Hcom70132" style="opacity: 0.75;">
+                    <div class="phpcode"><code><span class="html">
+this could be a nice way to print values from 2 tables with a foreign key. i have not yet tested correctly but it should work fine.<br><br>$buscar = mysql_query("SELECT k.*, e.Clasificacion FROM cat_plan_k k, cat_equipo e WHERE Tipo='$tipo' AND k.ID_Eq=a.ID_Eq"); <br>&nbsp; &nbsp; while ($row=mysql_fetch_array($buscar))<br>&nbsp; &nbsp; &nbsp; &nbsp; {<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; $nombre = "e.Clasificacion"; <br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; $row[$nombre] = $Clasific; echo $row[$nombre].'convertido en '.$Clasific;<br>&nbsp; &nbsp; &nbsp; &nbsp; }&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br>&nbsp; &nbsp; mysql_free_result($buscar);</span>
+                    </code></div>
+                </div>
+            </div>
+            <div class="note" id="31078">  <div class="votes">
+                <div id="Vu31078">
+                    <a href="/manual/vote-note.php?id=31078&amp;page=function.mysql-query&amp;vote=up" title="Vote up!" class="usernotes-voteu">up</a>
+                </div>
+                <div id="Vd31078">
+                    <a href="/manual/vote-note.php?id=31078&amp;page=function.mysql-query&amp;vote=down" title="Vote down!" class="usernotes-voted">down</a>
+                </div>
+                <div class="tally" id="V31078" title="48% like this...">
+                    -1
+                </div>
+            </div>
+                <a href="#31078" class="name"><strong class="user"><em>Anonymous</em></strong></a><a class="genanchor" href="#31078"> ¶</a><div class="date" title="2003-04-09 12:43"><strong>13 years ago</strong></div>
+                <div class="text" id="Hcom31078" style="opacity: 0.75;">
+                    <div class="phpcode"><code><span class="html">
+Until this function prohibits them, watch out for SQL comments (--) in your input.</span>
+                    </code></div>
+                </div>
+            </div>
+            <div class="note" id="83884">  <div class="votes">
+                <div id="Vu83884">
+                    <a href="/manual/vote-note.php?id=83884&amp;page=function.mysql-query&amp;vote=up" title="Vote up!" class="usernotes-voteu">up</a>
+                </div>
+                <div id="Vd83884">
+                    <a href="/manual/vote-note.php?id=83884&amp;page=function.mysql-query&amp;vote=down" title="Vote down!" class="usernotes-voted">down</a>
+                </div>
+                <div class="tally" id="V83884" title="45% like this...">
+                    -1
+                </div>
+            </div>
+                <a href="#83884" class="name">
+                    <strong class="user"><em>fernandoleal at loytek dot com</em></strong></a><a class="genanchor" href="#83884"> ¶</a><div class="date" title="2008-06-16 03:28"><strong>8 years ago</strong></div>
+                <div class="text" id="Hcom83884" style="opacity: 0.75;">
+                    <div class="phpcode"><code><span class="html">
+Dunno if is it a bug but when you are working with replications servers and work with multiple databases queries if you don't select the database it will only insert,update,delete into the master and bypass the slave, I think it its because it doesn't insert the sql on the binary log so the work around its to just call mysql_select_db <br>MYSQL : 5.0.51a-log<br>PHP: 5.2.6<br>Example:<br><span class="default">&lt;?php<br></span><span class="comment">#Inserts only to master<br></span><span class="default">$link</span><span class="keyword">=</span><span class="default">mysql_connect</span><span class="keyword">(</span><span class="string">'host'</span><span class="keyword">,</span><span class="string">'user'</span><span class="keyword">,</span><span class="string">'pass'</span><span class="keyword">);<br></span><span class="default">$sql </span><span class="keyword">=</span><span class="string">"INSERT INTO mysql.host (host) VALUES ('localhost');"<br></span><span class="default">var_dump</span><span class="keyword">(</span><span class="default">mysql_query</span><span class="keyword">(</span><span class="default">$sql</span><span class="keyword">,</span><span class="default">$link</span><span class="keyword">));<br><br></span><span class="comment">#The Working Way Master - Slave<br></span><span class="default">$link2</span><span class="keyword">=</span><span class="default">mysql_connect</span><span class="keyword">(</span><span class="string">'host'</span><span class="keyword">,</span><span class="string">'user'</span><span class="keyword">,</span><span class="string">'pass'</span><span class="keyword">);<br></span><span class="default">$select_db </span><span class="keyword">= </span><span class="default">mysql_select_db</span><span class="keyword">(</span><span class="string">'mysql'</span><span class="keyword">, </span><span class="default">$link2</span><span class="keyword">);<br></span><span class="default">var_dump</span><span class="keyword">(</span><span class="default">mysql_query</span><span class="keyword">(</span><span class="default">$sql</span><span class="keyword">,</span><span class="default">$link2</span><span class="keyword">));&nbsp;&nbsp; <br></span><span class="default">?&gt;</span>
+</span>
+                    </code></div>
+                </div>
+            </div>
+            <div class="note" id="69365">  <div class="votes">
+                <div id="Vu69365">
+                    <a href="/manual/vote-note.php?id=69365&amp;page=function.mysql-query&amp;vote=up" title="Vote up!" class="usernotes-voteu">up</a>
+                </div>
+                <div id="Vd69365">
+                    <a href="/manual/vote-note.php?id=69365&amp;page=function.mysql-query&amp;vote=down" title="Vote down!" class="usernotes-voted">down</a>
+                </div>
+                <div class="tally" id="V69365" title="45% like this...">
+                    -1
+                </div>
+            </div>
+                <a href="#69365" class="name">
+                    <strong class="user"><em>cc+php at c2se dot com</em></strong></a><a class="genanchor" href="#69365"> ¶</a><div class="date" title="2006-09-02 05:39"><strong>10 years ago</strong></div>
+                <div class="text" id="Hcom69365" style="opacity: 0.75;">
+                    <div class="phpcode"><code><span class="html">
+Here's a parameterised query function for MySQL similar to pg_query_params, I've been using something similar for a while now and while there is a slight drop in speed, it's far better than making a mistake escaping the parameters of your query and allowing an SQL injection attack on your server.<br><br><span class="default">&lt;?php&nbsp;&nbsp; </span><span class="comment"># Parameterised query implementation for MySQL (similar PostgreSQL's PHP function pg_query_params)<br>&nbsp; &nbsp; &nbsp; &nbsp; # Example: mysql_query_params( "SELECT * FROM my_table WHERE col1=$1 AND col2=$2", array( 42, "It's ok" ) );<br><br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="keyword">if( !</span><span class="default">function_exists</span><span class="keyword">( </span><span class="string">'mysql_query_params' </span><span class="keyword">) ) {<br><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; function </span><span class="default">mysql_query_params__callback</span><span class="keyword">( </span><span class="default">$at </span><span class="keyword">) {<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; global </span><span class="default">$mysql_query_params__parameters</span><span class="keyword">;<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; return </span><span class="default">$mysql_query_params__parameters</span><span class="keyword">[ </span><span class="default">$at</span><span class="keyword">[</span><span class="default">1</span><span class="keyword">]-</span><span class="default">1 </span><span class="keyword">];<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }<br><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; function </span><span class="default">mysql_query_params</span><span class="keyword">( </span><span class="default">$query</span><span class="keyword">, </span><span class="default">$parameters</span><span class="keyword">=array(), </span><span class="default">$database</span><span class="keyword">=</span><span class="default">false </span><span class="keyword">) {<br><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="comment">// Escape parameters as required &amp; build parameters for callback function<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="keyword">global </span><span class="default">$mysql_query_params__parameters</span><span class="keyword">;<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; foreach( </span><span class="default">$parameters </span><span class="keyword">as </span><span class="default">$k</span><span class="keyword">=&gt;</span><span class="default">$v </span><span class="keyword">)<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="default">$parameters</span><span class="keyword">[</span><span class="default">$k</span><span class="keyword">] = ( </span><span class="default">is_int</span><span class="keyword">( </span><span class="default">$v </span><span class="keyword">) ? </span><span class="default">$v </span><span class="keyword">: ( </span><span class="default">NULL</span><span class="keyword">===</span><span class="default">$v </span><span class="keyword">? </span><span class="string">'NULL' </span><span class="keyword">: </span><span class="string">"'"</span><span class="keyword">.</span><span class="default">mysql_real_escape_string</span><span class="keyword">( </span><span class="default">$v </span><span class="keyword">).</span><span class="string">"'" </span><span class="keyword">) );<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="default">$mysql_query_params__parameters </span><span class="keyword">= </span><span class="default">$parameters</span><span class="keyword">;<br><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="comment">// Call using mysql_query<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span><span class="keyword">if( </span><span class="default">false</span><span class="keyword">===</span><span class="default">$database </span><span class="keyword">)<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; return </span><span class="default">mysql_query</span><span class="keyword">( </span><span class="default">preg_replace_callback</span><span class="keyword">( </span><span class="string">'/\$([0-9]+)/'</span><span class="keyword">, </span><span class="string">'mysql_query_params__callback'</span><span class="keyword">, </span><span class="default">$query </span><span class="keyword">) );<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; else&nbsp; &nbsp; return </span><span class="default">mysql_query</span><span class="keyword">( </span><span class="default">preg_replace_callback</span><span class="keyword">( </span><span class="string">'/\$([0-9]+)/'</span><span class="keyword">, </span><span class="string">'mysql_query_params__callback'</span><span class="keyword">, </span><span class="default">$query </span><span class="keyword">), </span><span class="default">$database </span><span class="keyword">);<br><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }<br>&nbsp; &nbsp; &nbsp; &nbsp; }<br><br></span><span class="default">?&gt;</span>
+</span>
+                    </code></div>
+                </div>
+            </div>
+            <div class="note" id="31381">  <div class="votes">
+                <div id="Vu31381">
+                    <a href="/manual/vote-note.php?id=31381&amp;page=function.mysql-query&amp;vote=up" title="Vote up!" class="usernotes-voteu">up</a>
+                </div>
+                <div id="Vd31381">
+                    <a href="/manual/vote-note.php?id=31381&amp;page=function.mysql-query&amp;vote=down" title="Vote down!" class="usernotes-voted">down</a>
+                </div>
+                <div class="tally" id="V31381" title="46% like this...">
+                    -1
+                </div>
+            </div>
+                <a href="#31381" class="name">
+                    <strong class="user"><em>davidc at edeca dot net</em></strong></a><a class="genanchor" href="#31381"> ¶</a><div class="date" title="2003-04-19 12:30"><strong>13 years ago</strong></div>
+                <div class="text" id="Hcom31381" style="opacity: 0.75;">
+                    <div class="phpcode"><code><span class="html">
+Regarding the idea for returning all possible values of an enum field, the mySQL manual says that "SHOW COLUMNS FROM table LIKE column" should be used to do this.<br><br>The function below (presumes db connection) will return an array of the possible values of an enum.<br><br>function GetEnumValues($Table,$Column)<br>&nbsp; &nbsp; {<br>&nbsp; &nbsp; $dbSQL = "SHOW COLUMNS FROM ".$Table." LIKE '".$Column."'";<br>&nbsp; &nbsp; $dbQuery = mysql_query($dbSQL);<br><br>&nbsp; &nbsp; $dbRow = mysql_fetch_assoc($dbQuery);<br>&nbsp; &nbsp; $EnumValues = $dbRow["Type"];<br><br>&nbsp; &nbsp; $EnumValues = substr($EnumValues, 6, strlen($EnumValues)-8); <br>&nbsp; &nbsp; $EnumValues = str_replace("','",",",$EnumValues);<br><br>&nbsp; &nbsp; return explode(",",$EnumValues);<br>&nbsp; &nbsp; }<br><br>Cavaets:<br><br>1) If the LIKE matches more than one column you get the enum from the first, so be careful with the $Column argument<br>2) You can't have ',' as part of one of the enums (I guess mySQL would escape this, but I haven't tried)<br>3) If the field isn't an enum you'll get garbage back!<br><br>This is just a quick example to show how to do it, some tidying up needs to be done (ie checking if the field is actually an enum) before it is perfect.</span>
+                    </code></div>
+                </div>
+            </div>
+            <div class="note" id="67943">  <div class="votes">
+                <div id="Vu67943">
+                    <a href="/manual/vote-note.php?id=67943&amp;page=function.mysql-query&amp;vote=up" title="Vote up!" class="usernotes-voteu">up</a>
+                </div>
+                <div id="Vd67943">
+                    <a href="/manual/vote-note.php?id=67943&amp;page=function.mysql-query&amp;vote=down" title="Vote down!" class="usernotes-voted">down</a>
+                </div>
+                <div class="tally" id="V67943" title="45% like this...">
+                    -2
+                </div>
+            </div>
+                <a href="#67943" class="name">
+                    <strong class="user"><em>rob desbois</em></strong></a><a class="genanchor" href="#67943"> ¶</a><div class="date" title="2006-07-07 02:38"><strong>10 years ago</strong></div>
+                <div class="text" id="Hcom67943" style="opacity: 0.65;">
+                    <div class="phpcode"><code><span class="html">
+Note that the 'source' command used in the mysql client program is *not* a feature of the server but of the client.<br>This means that you cannot do<br>&nbsp;&nbsp; mysql_query('source myfile.sql');<br>You will get a syntax error. Use LOAD DATA INFILE as an alternative.</span>
+                    </code></div>
+                </div>
+            </div>
+            <div class="note" id="82429">  <div class="votes">
+                <div id="Vu82429">
+                    <a href="/manual/vote-note.php?id=82429&amp;page=function.mysql-query&amp;vote=up" title="Vote up!" class="usernotes-voteu">up</a>
+                </div>
+                <div id="Vd82429">
+                    <a href="/manual/vote-note.php?id=82429&amp;page=function.mysql-query&amp;vote=down" title="Vote down!" class="usernotes-voted">down</a>
+                </div>
+                <div class="tally" id="V82429" title="44% like this...">
+                    -2
+                </div>
+            </div>
+                <a href="#82429" class="name">
+                    <strong class="user"><em>rogier</em></strong></a><a class="genanchor" href="#82429"> ¶</a><div class="date" title="2008-04-10 06:55"><strong>8 years ago</strong></div>
+                <div class="text" id="Hcom82429" style="opacity: 0.65;">
+                    <div class="phpcode"><code><span class="html">
+For all you programmers out there getting the 'Command out of synch' errors when executing a stored procedure call:<br><br>There are known bugs related to this issue, and the best workaround for avoiding this error seems to be switching to mysqli.<br><br>Still, I needed mysql to also handle these calls correctly.<br>The error is normally related to wrong function call sequences, though the bug report at&nbsp; <a href="http://bugs.php.net/bug.php?id=39727" rel="nofollow" target="_blank">http://bugs.php.net/bug.php?id=39727</a> shows otherwise.<br><br>For me, after commenting out hundreds of lines and several introspection calls to parse the procedure information (using information_schema and 'SHOW' extensions), I still got the same error.<br>The first result is returned, because I initiated my connection using the MYSQL_MULTI_RESULTS value of 131072 (forget this and you will never get any output, but an error message stating mysql cannot return results in this context)<br><br>After testing with this code (sproc2 simply calls 'SELECT * FROM sometable'), I found the error must be in the mysql library/extension. Somehow, mysql does not handle multiple resultsets correctly, or is at least missing some functionality related to handling multiple results.<br><br><span class="default">&lt;?php<br>&nbsp; &nbsp; </span><span class="comment">//...<br>&nbsp; &nbsp; </span><span class="default">$rs </span><span class="keyword">= </span><span class="default">mysql_query</span><span class="keyword">(</span><span class="string">'CALL sproc2(500)'</span><span class="keyword">);<br>&nbsp; &nbsp; while ((</span><span class="default">$row</span><span class="keyword">=</span><span class="default">mysql_fetch_assoc</span><span class="keyword">(</span><span class="default">$rs</span><span class="keyword">))!==</span><span class="default">false</span><span class="keyword">) {<br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="default">print_r</span><span class="keyword">(</span><span class="default">$row</span><span class="keyword">);<br>&nbsp; &nbsp; }<br>&nbsp; &nbsp; </span><span class="default">mysql_free_result</span><span class="keyword">(</span><span class="default">$rs</span><span class="keyword">);<br><br>&nbsp; &nbsp; </span><span class="default">$rs </span><span class="keyword">= </span><span class="default">mysql_query</span><span class="keyword">(</span><span class="string">'CALL sproc2(500)'</span><span class="keyword">);<br>&nbsp; &nbsp; print </span><span class="default">mysql_error</span><span class="keyword">(); </span><span class="comment">//the notorious 'command out of synch' message :(<br>&nbsp; &nbsp; </span><span class="keyword">while ((</span><span class="default">$row</span><span class="keyword">=</span><span class="default">mysql_fetch_assoc</span><span class="keyword">(</span><span class="default">$rs</span><span class="keyword">))!==</span><span class="default">false</span><span class="keyword">) {<br>&nbsp; &nbsp; &nbsp; &nbsp; </span><span class="default">print_r</span><span class="keyword">(</span><span class="default">$row</span><span class="keyword">);<br>&nbsp; &nbsp; }<br>&nbsp; &nbsp; </span><span class="default">mysql_free_result</span><span class="keyword">(</span><span class="default">$rs</span><span class="keyword">);<br></span><span class="default">?&gt;<br></span><br>After spending hours debugging my code (the full library is already over the MB), the only solution seemed to be to CLOSE the connection after the first call, and reopening it before the second. <br><br>So if you ever make a uniform database accessing interface and implement stored procedures/prepared statements (or classes for it), this could be a solution if you really wish to enable stored procedures.<br><br>Still, be aware that this is really a serious flaw in your design (and IMHO, the mysql extension)<br><br>Also see the documentation for mysqli on mysqli_query, which seems to be working fine.</span>
+                    </code></div>
+                </div>
+            </div>
+            <div class="note" id="108160">  <div class="votes">
+                <div id="Vu108160">
+                    <a href="/manual/vote-note.php?id=108160&amp;page=function.mysql-query&amp;vote=up" title="Vote up!" class="usernotes-voteu">up</a>
+                </div>
+                <div id="Vd108160">
+                    <a href="/manual/vote-note.php?id=108160&amp;page=function.mysql-query&amp;vote=down" title="Vote down!" class="usernotes-voted">down</a>
+                </div>
+                <div class="tally" id="V108160" title="45% like this...">
+                    -4
+                </div>
+            </div>
+                <a href="#108160" class="name">
+                    <strong class="user"><em>mwwaygoo at hotmail dot com</em></strong></a><a class="genanchor" href="#108160"> ¶</a><div class="date" title="2012-04-03 02:16"><strong>4 years ago</strong></div>
+                <div class="text" id="Hcom108160" style="opacity: 0.44999999999999996;">
+                    <div class="phpcode"><code><span class="html">
+I much prefer to use the same syntax for single INSERT, REPLACE and UPDATE queries as it is easier to read and keeps my code shorter (no seperate building of insert and update values)<br><br>INSERT INTO table SET x='1', y=3<br>UPDATE table SET x='2' WHERE y=3<br><br>So if your using a function to build your query, you will only ever need to code the "field=value, field2=value2" part for any query.</span>
+                    </code></div>
+                </div>
+            </div>
+            <div class="note" id="57377">  <div class="votes">
+                <div id="Vu57377">
+                    <a href="/manual/vote-note.php?id=57377&amp;page=function.mysql-query&amp;vote=up" title="Vote up!" class="usernotes-voteu">up</a>
+                </div>
+                <div id="Vd57377">
+                    <a href="/manual/vote-note.php?id=57377&amp;page=function.mysql-query&amp;vote=down" title="Vote down!" class="usernotes-voted">down</a>
+                </div>
+                <div class="tally" id="V57377" title="42% like this...">
+                    -3
+                </div>
+            </div>
+                <a href="#57377" class="name">
+                    <strong class="user"><em>php at arcannon dot com</em></strong></a><a class="genanchor" href="#57377"> ¶</a><div class="date" title="2005-10-01 03:30"><strong>11 years ago</strong></div>
+                <div class="text" id="Hcom57377" style="opacity: 0.55;">
+                    <div class="phpcode"><code><span class="html">
+I believe there is a typo in celtic at raven-blue dot com version with:<br><br>if (($sql != "") &amp;&amp; (substr($tsl, 0, 2) != "--") &amp;&amp; (substr($tsl, 0, 1) != "#")) {<br><br>I think you really ment: <br><br>if (($tsl != "") &amp;&amp; (substr($tsl, 0, 2) != "--") &amp;&amp; (substr($tsl, 0, 1) != "#")) {<br><br>I changed the $sql to $tsl</span>
+                    </code></div>
+                </div>
+            </div>
+            <div class="note" id="52427">  <div class="votes">
+                <div id="Vu52427">
+                    <a href="/manual/vote-note.php?id=52427&amp;page=function.mysql-query&amp;vote=up" title="Vote up!" class="usernotes-voteu">up</a>
+                </div>
+                <div id="Vd52427">
+                    <a href="/manual/vote-note.php?id=52427&amp;page=function.mysql-query&amp;vote=down" title="Vote down!" class="usernotes-voted">down</a>
+                </div>
+                <div class="tally" id="V52427" title="40% like this...">
+                    -4
+                </div>
+            </div>
+                <a href="#52427" class="name">
+                    <strong class="user"><em>wjyong at sh163 dot net</em></strong></a><a class="genanchor" href="#52427"> ¶</a><div class="date" title="2005-04-30 04:21"><strong>11 years ago</strong></div>
+                <div class="text" id="Hcom52427" style="opacity: 0.44999999999999996;">
+                    <div class="phpcode"><code><span class="html">
+The following query is not valid as expected:<br><span class="default">&lt;?php<br>$username </span><span class="keyword">= </span><span class="string">'dicteworld'</span><span class="keyword">;<br></span><span class="default">$username</span><span class="keyword">{</span><span class="default">4</span><span class="keyword">} = </span><span class="string">''</span><span class="keyword">;<br></span><span class="default">$sql </span><span class="keyword">= </span><span class="string">"SELECT * FROM `user` WHERE `User` = '</span><span class="default">$username</span><span class="string">'"</span><span class="keyword">;<br>print(</span><span class="default">$sql</span><span class="keyword">); </span><span class="comment">// Result: SELECT * FROM `user` WHERE `User` = 'dictworld'<br></span><span class="default">$res </span><span class="keyword">= </span><span class="default">mysql_query</span><span class="keyword">(</span><span class="default">$query</span><span class="keyword">);<br></span><span class="default">$row </span><span class="keyword">= </span><span class="default">mysql_fetch_array</span><span class="keyword">(</span><span class="default">$res</span><span class="keyword">);<br></span><span class="default">print_r</span><span class="keyword">(</span><span class="default">$row</span><span class="keyword">);</span><span class="comment">// Result: still return Array(), supposed that the user 'dictworld' exists.<br></span><span class="default">?&gt;<br></span>Pay more attention that null string '' is equivalent to '\0',therefore SQL statement above is equivalent to SELECT * FROM `user` WHERE `User` = 'dict\0world',though printing string is right.</span>
+                    </code></div>
+                </div>
+            </div>
+            <div class="note" id="93774">  <div class="votes">
+                <div id="Vu93774">
+                    <a href="/manual/vote-note.php?id=93774&amp;page=function.mysql-query&amp;vote=up" title="Vote up!" class="usernotes-voteu">up</a>
+                </div>
+                <div id="Vd93774">
+                    <a href="/manual/vote-note.php?id=93774&amp;page=function.mysql-query&amp;vote=down" title="Vote down!" class="usernotes-voted">down</a>
+                </div>
+                <div class="tally" id="V93774" title="42% like this...">
+                    -6
+                </div>
+            </div>
+                <a href="#93774" class="name">
+                    <strong class="user"><em>Richie (at) RichieBartlett.com</em></strong></a><a class="genanchor" href="#93774"> ¶</a><div class="date" title="2009-09-28 04:43"><strong>7 years ago</strong></div>
+                <div class="text" id="Hcom93774" style="opacity: 0.35;">
+                    <div class="phpcode"><code><span class="html">
+For those of you whom spent hours bashing your brains against the keyboard wondering why your non-English characters are output as question marks... Try the following:
+<br>
+<br><span class="default">&lt;?php
+<br>
+<br>$db </span><span class="keyword">= </span><span class="default">mysql_connect</span><span class="keyword">(</span><span class="string">'YOUR_DB_ADDRESS'</span><span class="keyword">,</span><span class="string">'YOUR_DB_USER'</span><span class="keyword">,</span><span class="string">'YOUR_DB_PASS'</span><span class="keyword">) or die(</span><span class="string">"Database error"</span><span class="keyword">);
+<br></span><span class="default">mysql_select_db</span><span class="keyword">(</span><span class="string">'YOUR_DB'</span><span class="keyword">, </span><span class="default">$db</span><span class="keyword">);
+<br>
+<br></span><span class="comment">//SOLUTION::&nbsp; add this comment before your 1st query -- force multiLanuage support
+<br></span><span class="default">$result </span><span class="keyword">= </span><span class="default">mysql_query</span><span class="keyword">(</span><span class="string">"set names 'utf8'"</span><span class="keyword">);
+<br>
+<br></span><span class="default">$query </span><span class="keyword">= </span><span class="string">"select * from YOUR_DB_TABLE"</span><span class="keyword">;
+<br></span><span class="default">$result </span><span class="keyword">= </span><span class="default">mysql_query</span><span class="keyword">(</span><span class="default">$query</span><span class="keyword">);
+<br>
+<br></span><span class="comment">//-THE_REST_IS_UP_TO_YOU-
+<br>
+<br></span><span class="default">?&gt;
+<br></span>
+<br>Simply run the query "set names 'utf8' " against the MySQL DB and your output should appear correct.</span>
+                    </code></div>
+                </div>
+            </div>
+            <div class="note" id="91791">  <div class="votes">
+                <div id="Vu91791">
+                    <a href="/manual/vote-note.php?id=91791&amp;page=function.mysql-query&amp;vote=up" title="Vote up!" class="usernotes-voteu">up</a>
+                </div>
+                <div id="Vd91791">
+                    <a href="/manual/vote-note.php?id=91791&amp;page=function.mysql-query&amp;vote=down" title="Vote down!" class="usernotes-voted">down</a>
+                </div>
+                <div class="tally" id="V91791" title="41% like this...">
+                    -7
+                </div>
+            </div>
+                <a href="#91791" class="name">
+                    <strong class="user"><em>Anonymous</em></strong></a><a class="genanchor" href="#91791"> ¶</a><div class="date" title="2009-06-25 08:18"><strong>7 years ago</strong></div>
+                <div class="text" id="Hcom91791" style="opacity: 0.35;">
+                    <div class="phpcode"><code><span class="html">
+When processing a RENAME TABLE query, PHP apparently always returns false, no matter if the query was successfully processed or not.</span>
+                    </code></div>
+                </div>
+            </div>
+            <div class="note" id="30783">  <div class="votes">
+                <div id="Vu30783">
+                    <a href="/manual/vote-note.php?id=30783&amp;page=function.mysql-query&amp;vote=up" title="Vote up!" class="usernotes-voteu">up</a>
+                </div>
+                <div id="Vd30783">
+                    <a href="/manual/vote-note.php?id=30783&amp;page=function.mysql-query&amp;vote=down" title="Vote down!" class="usernotes-voted">down</a>
+                </div>
+                <div class="tally" id="V30783" title="33% like this...">
+                    -5
+                </div>
+            </div>
+                <a href="#30783" class="name">
+                    <strong class="user"><em>allen a brooker gb net</em></strong></a><a class="genanchor" href="#30783"> ¶</a><div class="date" title="2003-03-28 05:35"><strong>13 years ago</strong></div>
+                <div class="text" id="Hcom30783" style="opacity: 0.35;">
+                    <div class="phpcode"><code><span class="html">
+One way to reduce the dangers of queries like the dlete command above that dletes the whole DB is to use limits wherever possible. <br><br>EG. If you have a routine that is only deisnged to delete 1 record, add 'LIMIT 1' to the end of the command. This way you'll only lose one record if someone does something stupid.<br><br>You should also check all input, especially if it is sent using GET. ie. make sure that $_GET['id'] is not NULL or == "", is a number that is positive, not 0 (generally, I know this doesn't apply to some table types, but it applies to the default) and is within the valid range for that field.<br><br>Just don't trust ANY data that is sent to your script.<br><br>HTH<br>Allen</span>
+                    </code></div>
+                </div>
+            </div>
+            <div class="note" id="31707">  <div class="votes">
+                <div id="Vu31707">
+                    <a href="/manual/vote-note.php?id=31707&amp;page=function.mysql-query&amp;vote=up" title="Vote up!" class="usernotes-voteu">up</a>
+                </div>
+                <div id="Vd31707">
+                    <a href="/manual/vote-note.php?id=31707&amp;page=function.mysql-query&amp;vote=down" title="Vote down!" class="usernotes-voted">down</a>
+                </div>
+                <div class="tally" id="V31707" title="35% like this...">
+                    -6
+                </div>
+            </div>
+                <a href="#31707" class="name">
+                    <strong class="user"><em>chris at hotmail dot com</em></strong></a><a class="genanchor" href="#31707"> ¶</a><div class="date" title="2003-04-30 06:28"><strong>13 years ago</strong></div>
+                <div class="text" id="Hcom31707" style="opacity: 0.35;">
+                    <div class="phpcode"><code><span class="html">
+Windows programmers, keep in mind that although table names in Windows queries are not case sensitive, many *NIX versions of Mysql require the correct table name case (perhaps others as well). So you're better off using the right case from the beginning, in case you ever decide to go with a *NIX server.</span>
+                    </code></div>
+                </div>
+            </div>
+            <div class="note" id="49375">  <div class="votes">
+                <div id="Vu49375">
+                    <a href="/manual/vote-note.php?id=49375&amp;page=function.mysql-query&amp;vote=up" title="Vote up!" class="usernotes-voteu">up</a>
+                </div>
+                <div id="Vd49375">
+                    <a href="/manual/vote-note.php?id=49375&amp;page=function.mysql-query&amp;vote=down" title="Vote down!" class="usernotes-voted">down</a>
+                </div>
+                <div class="tally" id="V49375" title="28% like this...">
+                    -6
+                </div>
+            </div>
+                <a href="#49375" class="name">
+                    <strong class="user"><em>jon at websandbox dot net</em></strong></a><a class="genanchor" href="#49375"> ¶</a><div class="date" title="2005-01-25 05:25"><strong>11 years ago</strong></div>
+                <div class="text" id="Hcom49375" style="opacity: 0.35;">
+                    <div class="phpcode"><code><span class="html">
+I think it's important to note (for newbies, like me especially) that an empty result is not the same as an error:<br><span class="default">&lt;?php<br></span><span class="comment">/* 'bar' is an empty table in the db */<br></span><span class="default">$rs </span><span class="keyword">= </span><span class="default">mysql_query</span><span class="keyword">(</span><span class="string">"SELECT `foo` FROM `bar`"</span><span class="keyword">)<br>if(</span><span class="default">$rs</span><span class="keyword">) {<br>&nbsp; echo </span><span class="default">mysql_num_rows</span><span class="keyword">(</span><span class="default">$rs</span><span class="keyword">); </span><span class="comment">//outputs: 0<br></span><span class="keyword">}<br><br></span><span class="comment">/* malformed query /*<br>$rs = mysql_query("SELECT `foo` FRO `bar`");<br>if($rs) {<br>&nbsp; echo "This will never be echoed";<br>}<br>?&gt;</span>
+</span>
+                    </code></div>
+                </div>
+            </div>
+            <div class="note" id="37870">  <div class="votes">
+                <div id="Vu37870">
+                    <a href="/manual/vote-note.php?id=37870&amp;page=function.mysql-query&amp;vote=up" title="Vote up!" class="usernotes-voteu">up</a>
+                </div>
+                <div id="Vd37870">
+                    <a href="/manual/vote-note.php?id=37870&amp;page=function.mysql-query&amp;vote=down" title="Vote down!" class="usernotes-voted">down</a>
+                </div>
+                <div class="tally" id="V37870" title="21% like this...">
+                    -8
+                </div>
+            </div>
+                <a href="#37870" class="name">
+                    <strong class="user"><em>Predrag Supurovic</em></strong></a><a class="genanchor" href="#37870"> ¶</a><div class="date" title="2003-11-30 04:52"><strong>12 years ago</strong></div>
+                <div class="text" id="Hcom37870" style="opacity: 0.35;">
+                    <div class="phpcode"><code><span class="html">
+If you need to execute sevaral SQL commands in a row (usually called batcg SQL) using PHP you canot use mysql_query() since it can execute single command only.<br><br>Here is simple but effective function that can run batch SQL commands. Take cere, if string contains semicolon (;) anywhere except as command delimiter (within string expression for example) function will not work.<br><br>function mysql_exec_batch ($p_query, $p_transaction_safe = true) {<br>&nbsp; if ($p_transaction_safe) {<br>&nbsp; &nbsp; &nbsp; $p_query = 'START TRANSACTION;' . $p_query . '; COMMIT;';<br>&nbsp; &nbsp; };<br>&nbsp; $query_split = preg_split ("/[;]+/", $p_query);<br>&nbsp; foreach ($query_split as $command_line) {<br>&nbsp; &nbsp; $command_line = trim($command_line);<br>&nbsp; &nbsp; if ($command_line != '') {<br>&nbsp; &nbsp; &nbsp; $query_result = mysql_query($command_line);<br>&nbsp; &nbsp; &nbsp; if ($query_result == 0) {<br>&nbsp; &nbsp; &nbsp; &nbsp; break;<br>&nbsp; &nbsp; &nbsp; };<br>&nbsp; &nbsp; };<br>&nbsp; };<br>&nbsp; return $query_result;<br>}</span>
+                    </code></div>
+                </div>
+            </div></div>
+
+            <div class="foot"><a href="/manual/add-note.php?sect=function.mysql-query&amp;redirect=http://php.net/manual/de/function.mysql-query.php"><img src="/images/notes-add@2x.png" alt="add a note" width="12" height="12"> <small>add a note</small></a></div>
+        </section>    </section><!-- layout-content -->
+    <aside class="layout-menu">
+
+        <ul class="parent-menu-list">
+            <li>
+                <a href="ref.mysql.php">MySQL Funktionen</a>
+
+                <ul class="child-menu-list">
+
+
+                    <li class="">
+                        <a href="function.mysql-affected-rows.php" title="mysql_​affected_​rows">mysql_​affected_​rows</a>
+                    </li>
+
+                    <li class="">
+                        <a href="function.mysql-client-encoding.php" title="mysql_​client_​encoding">mysql_​client_​encoding</a>
+                    </li>
+
+                    <li class="">
+                        <a href="function.mysql-close.php" title="mysql_​close">mysql_​close</a>
+                    </li>
+
+                    <li class="">
+                        <a href="function.mysql-connect.php" title="mysql_​connect">mysql_​connect</a>
+                    </li>
+
+                    <li class="">
+                        <a href="function.mysql-create-db.php" title="mysql_​create_​db">mysql_​create_​db</a>
+                    </li>
+
+                    <li class="">
+                        <a href="function.mysql-data-seek.php" title="mysql_​data_​seek">mysql_​data_​seek</a>
+                    </li>
+
+                    <li class="">
+                        <a href="function.mysql-db-name.php" title="mysql_​db_​name">mysql_​db_​name</a>
+                    </li>
+
+                    <li class="">
+                        <a href="function.mysql-db-query.php" title="mysql_​db_​query">mysql_​db_​query</a>
+                    </li>
+
+                    <li class="">
+                        <a href="function.mysql-drop-db.php" title="mysql_​drop_​db">mysql_​drop_​db</a>
+                    </li>
+
+                    <li class="">
+                        <a href="function.mysql-errno.php" title="mysql_​errno">mysql_​errno</a>
+                    </li>
+
+                    <li class="">
+                        <a href="function.mysql-error.php" title="mysql_​error">mysql_​error</a>
+                    </li>
+
+                    <li class="">
+                        <a href="function.mysql-escape-string.php" title="mysql_​escape_​string">mysql_​escape_​string</a>
+                    </li>
+
+                    <li class="">
+                        <a href="function.mysql-fetch-array.php" title="mysql_​fetch_​array">mysql_​fetch_​array</a>
+                    </li>
+
+                    <li class="">
+                        <a href="function.mysql-fetch-assoc.php" title="mysql_​fetch_​assoc">mysql_​fetch_​assoc</a>
+                    </li>
+
+                    <li class="">
+                        <a href="function.mysql-fetch-field.php" title="mysql_​fetch_​field">mysql_​fetch_​field</a>
+                    </li>
+
+                    <li class="">
+                        <a href="function.mysql-fetch-lengths.php" title="mysql_​fetch_​lengths">mysql_​fetch_​lengths</a>
+                    </li>
+
+                    <li class="">
+                        <a href="function.mysql-fetch-object.php" title="mysql_​fetch_​object">mysql_​fetch_​object</a>
+                    </li>
+
+                    <li class="">
+                        <a href="function.mysql-fetch-row.php" title="mysql_​fetch_​row">mysql_​fetch_​row</a>
+                    </li>
+
+                    <li class="">
+                        <a href="function.mysql-field-flags.php" title="mysql_​field_​flags">mysql_​field_​flags</a>
+                    </li>
+
+                    <li class="">
+                        <a href="function.mysql-field-len.php" title="mysql_​field_​len">mysql_​field_​len</a>
+                    </li>
+
+                    <li class="">
+                        <a href="function.mysql-field-name.php" title="mysql_​field_​name">mysql_​field_​name</a>
+                    </li>
+
+                    <li class="">
+                        <a href="function.mysql-field-seek.php" title="mysql_​field_​seek">mysql_​field_​seek</a>
+                    </li>
+
+                    <li class="">
+                        <a href="function.mysql-field-table.php" title="mysql_​field_​table">mysql_​field_​table</a>
+                    </li>
+
+                    <li class="">
+                        <a href="function.mysql-field-type.php" title="mysql_​field_​type">mysql_​field_​type</a>
+                    </li>
+
+                    <li class="">
+                        <a href="function.mysql-free-result.php" title="mysql_​free_​result">mysql_​free_​result</a>
+                    </li>
+
+                    <li class="">
+                        <a href="function.mysql-get-client-info.php" title="mysql_​get_​client_​info">mysql_​get_​client_​info</a>
+                    </li>
+
+                    <li class="">
+                        <a href="function.mysql-get-host-info.php" title="mysql_​get_​host_​info">mysql_​get_​host_​info</a>
+                    </li>
+
+                    <li class="">
+                        <a href="function.mysql-get-proto-info.php" title="mysql_​get_​proto_​info">mysql_​get_​proto_​info</a>
+                    </li>
+
+                    <li class="">
+                        <a href="function.mysql-get-server-info.php" title="mysql_​get_​server_​info">mysql_​get_​server_​info</a>
+                    </li>
+
+                    <li class="">
+                        <a href="function.mysql-info.php" title="mysql_​info">mysql_​info</a>
+                    </li>
+
+                    <li class="">
+                        <a href="function.mysql-insert-id.php" title="mysql_​insert_​id">mysql_​insert_​id</a>
+                    </li>
+
+                    <li class="">
+                        <a href="function.mysql-list-dbs.php" title="mysql_​list_​dbs">mysql_​list_​dbs</a>
+                    </li>
+
+                    <li class="">
+                        <a href="function.mysql-list-fields.php" title="mysql_​list_​fields">mysql_​list_​fields</a>
+                    </li>
+
+                    <li class="">
+                        <a href="function.mysql-list-processes.php" title="mysql_​list_​processes">mysql_​list_​processes</a>
+                    </li>
+
+                    <li class="">
+                        <a href="function.mysql-list-tables.php" title="mysql_​list_​tables">mysql_​list_​tables</a>
+                    </li>
+
+                    <li class="">
+                        <a href="function.mysql-num-fields.php" title="mysql_​num_​fields">mysql_​num_​fields</a>
+                    </li>
+
+                    <li class="">
+                        <a href="function.mysql-num-rows.php" title="mysql_​num_​rows">mysql_​num_​rows</a>
+                    </li>
+
+                    <li class="">
+                        <a href="function.mysql-pconnect.php" title="mysql_​pconnect">mysql_​pconnect</a>
+                    </li>
+
+                    <li class="">
+                        <a href="function.mysql-ping.php" title="mysql_​ping">mysql_​ping</a>
+                    </li>
+
+                    <li class="current">
+                        <a href="function.mysql-query.php" title="mysql_​query">mysql_​query</a>
+                    </li>
+
+                    <li class="">
+                        <a href="function.mysql-real-escape-string.php" title="mysql_​real_​escape_​string">mysql_​real_​escape_​string</a>
+                    </li>
+
+                    <li class="">
+                        <a href="function.mysql-result.php" title="mysql_​result">mysql_​result</a>
+                    </li>
+
+                    <li class="">
+                        <a href="function.mysql-select-db.php" title="mysql_​select_​db">mysql_​select_​db</a>
+                    </li>
+
+                    <li class="">
+                        <a href="function.mysql-set-charset.php" title="mysql_​set_​charset">mysql_​set_​charset</a>
+                    </li>
+
+                    <li class="">
+                        <a href="function.mysql-stat.php" title="mysql_​stat">mysql_​stat</a>
+                    </li>
+
+                    <li class="">
+                        <a href="function.mysql-tablename.php" title="mysql_​tablename">mysql_​tablename</a>
+                    </li>
+
+                    <li class="">
+                        <a href="function.mysql-thread-id.php" title="mysql_​thread_​id">mysql_​thread_​id</a>
+                    </li>
+
+                    <li class="">
+                        <a href="function.mysql-unbuffered-query.php" title="mysql_​unbuffered_​query">mysql_​unbuffered_​query</a>
+                    </li>
+
+                </ul>
+
+            </li>
+
+        </ul>
+    </aside>
+
+
+</div><!-- layout -->
+
+<footer>
+    <div class="container footer-content">
+        <div class="row-fluid">
+            <ul class="footmenu">
+                <li><a href="/copyright.php">Copyright © 2001-2016 The PHP Group</a></li>
+                <li><a href="/my.php">My PHP.net</a></li>
+                <li><a href="/contact.php">Contact</a></li>
+                <li><a href="/sites.php">Other PHP.net sites</a></li>
+                <li><a href="/mirrors.php">Mirror sites</a></li>
+                <li><a href="/privacy.php">Privacy policy</a></li>
+            </ul>
+        </div>
+    </div>
+</footer>
+
+
+<!-- External and third party libraries. -->
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script type="text/javascript" src="http://php.net/cached.php?t=1421837618&amp;f=/js/ext/modernizr.js"></script>
+<script type="text/javascript" src="http://php.net/cached.php?t=1421837618&amp;f=/js/ext/hogan-2.0.0.min.js"></script>
+<script type="text/javascript" src="http://php.net/cached.php?t=1421837618&amp;f=/js/ext/typeahead.min.js"></script>
+<script type="text/javascript" src="http://php.net/cached.php?t=1421837618&amp;f=/js/ext/mousetrap.min.js"></script>
+<script type="text/javascript" src="http://php.net/cached.php?t=1421837618&amp;f=/js/search.js"></script>
+<script type="text/javascript" src="http://php.net/cached.php?t=1478627406&amp;f=/js/common.js"></script>
+
+<a id="toTop" href="javascript:;"><span id="toTopHover"></span><img width="40" height="40" alt="To Top" src="/images/to-top@2x.png"></a>
+
+<div class="grammarly-disable-indicator"></div></body></html>
