@@ -48,23 +48,4 @@ class PhpManualChatBotTest extends GuzzleTestCase
 
         $this->chatBot->lookupFunction($functionName);
     }
-
-    public function testRequests()
-    {
-        $this->setMockResponse($this->client, array('response-mysql-query'));
-        $request = $this->client->get(
-            'http://php.net/manual/de/function.mysql-query.php'
-        );
-
-        /** @var \Guzzle\Http\Message\Response $response */
-        $response = $request->send();
-
-        $this->assertContainsOnly($request, $this->getMockedRequests());
-        $this->assertEquals(200, $response->getStatusCode());
-        $this->assertEquals('php.net', $response->getServer());
-        $this->assertEquals('application/html', $response->getContentType());
-        $crawler = new Crawler($response->getBody(true));
-        $crawler = $crawler->filterXPath('//p[@class="verinfo"]');
-        var_dump($crawler->first()->html());
-    }
 }
