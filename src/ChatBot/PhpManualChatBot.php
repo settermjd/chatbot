@@ -12,7 +12,7 @@ use Symfony\Component\DomCrawler\Crawler;
  */
 class PhpManualChatBot
 {
-    const MANUAL_URI_PATTERN = 'http://php.net/manual/de/function.%s.php';
+    const MANUAL_URI_PATTERN = 'http://php.net/manual/en/function.%s.php';
     const XPATH_VERSION_INFO = '//p[@class="verinfo"]';
     const XPATH_REFERENCE_NAME = '//span[@class="refname"]';
     const XPATH_METHOD_SYNOPSIS = '//div[@class="methodsynopsis dc-description"]';
