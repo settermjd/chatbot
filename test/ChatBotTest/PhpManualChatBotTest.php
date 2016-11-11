@@ -17,11 +17,11 @@ class PhpManualChatBotTest extends GuzzleTestCase
     {
         $this->client = new ServiceClient();
         $this->setMockBasePath('./test/mock/responses');
-        $this->setMockResponse($this->client, array('response-mysql-query'));
     }
 
     public function testChatBotCanBeInitialised()
     {
+        $this->setMockResponse($this->client, array('response-mysql-query'));
         $functionName = 'mysql-query';
         $this->chatBot = new PhpManualChatBot($this->client);
 
@@ -36,7 +36,22 @@ class PhpManualChatBotTest extends GuzzleTestCase
         $this->assertEquals($responseObject, $response);
     }
 
-    public function testRequests() {
+    /**
+     * @expectedException \ChatBot\FunctionNotFoundException
+     * @expectedExceptionMessage The function 'mysql-query' was not found in the PHP manual
+     */
+    public function testChatBotCanHandle404Response()
+    {
+        $this->setMockResponse($this->client, array('response-404'));
+        $functionName = 'mysql-query';
+        $this->chatBot = new PhpManualChatBot($this->client);
+
+        $this->chatBot->lookupFunction($functionName);
+    }
+
+    public function testRequests()
+    {
+        $this->setMockResponse($this->client, array('response-mysql-query'));
         $request = $this->client->get(
             'http://php.net/manual/de/function.mysql-query.php'
         );

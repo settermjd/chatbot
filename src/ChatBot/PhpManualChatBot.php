@@ -2,6 +2,7 @@
 
 namespace ChatBot;
 
+use Guzzle\Http\Exception\ClientErrorResponseException;
 use Guzzle\Service\Client;
 use Symfony\Component\DomCrawler\Crawler;
 
@@ -39,10 +40,16 @@ class PhpManualChatBot
      */
     public function lookupFunction($functionName)
     {
-        /** @var \Guzzle\Http\Message\Response $response */
-        $response = ($this->client->get(sprintf(
-            self::MANUAL_URI_PATTERN, $functionName))
-        )->send();
+        try {
+            /** @var \Guzzle\Http\Message\Response $response */
+            $response = ($this->client->get(sprintf(
+                self::MANUAL_URI_PATTERN, $functionName))
+            )->send();
+        } catch (ClientErrorResponseException $e) {
+            throw new FunctionNotFoundException(sprintf(
+                "The function '%s' was not found in the PHP manual", $functionName
+            ));
+        }
 
         $crawler = new Crawler($response->getBody(true));
 
