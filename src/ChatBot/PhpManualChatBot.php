@@ -3,7 +3,7 @@
 namespace ChatBot;
 
 use Guzzle\Http\Exception\ClientErrorResponseException;
-use Guzzle\Service\Client;
+use Guzzle\Service\ClientInterface;
 use Symfony\Component\DomCrawler\Crawler;
 
 /**
@@ -22,14 +22,17 @@ class PhpManualChatBot
      * @var Client
      */
     private $client;
+    private $crawler;
 
     /**
      * PhpManualChatBot constructor.
-     * @param Client $client
+     * @param ClientInterface $client
+     * @param CrawlerInterface $crawler
      */
-    public function __construct(Client $client)
+    public function __construct(ClientInterface $client, Crawler $crawler)
     {
         $this->client = $client;
+        $this->crawler = $crawler;
     }
 
     /**
@@ -51,13 +54,13 @@ class PhpManualChatBot
             ));
         }
 
-        $crawler = new Crawler($response->getBody(true));
+        $this->crawler->add($response->getBody(true));
 
         return new PhpManualChatBotResponse(
-            $crawler->filterXPath(self::XPATH_VERSION_INFO)->text(),
-            $crawler->filterXPath(self::XPATH_REFERENCE_NAME)->text(),
-            $crawler->filterXPath(self::XPATH_METHOD_SYNOPSIS)->text(),
-            $crawler->filterXPath(self::XPATH_METHOD_DESCRIPTION)->text()
+            $this->crawler->filterXPath(self::XPATH_VERSION_INFO)->text(),
+            $this->crawler->filterXPath(self::XPATH_REFERENCE_NAME)->text(),
+            $this->crawler->filterXPath(self::XPATH_METHOD_SYNOPSIS)->text(),
+            $this->crawler->filterXPath(self::XPATH_METHOD_DESCRIPTION)->text()
         );
     }
 }
