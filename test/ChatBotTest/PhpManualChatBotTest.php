@@ -23,7 +23,8 @@ class PhpManualChatBotTest extends GuzzleTestCase
     {
         $this->setMockResponse($this->client, array('response-mysql-query'));
         $functionName = 'mysql-query';
-        $this->chatBot = new PhpManualChatBot($this->client);
+        $crawler = new Crawler();
+        $this->chatBot = new PhpManualChatBot($this->client, $crawler);
 
         $responseObject = new PhpManualChatBotResponse(
             '(PHP 4, PHP 5)',
@@ -44,7 +45,8 @@ class PhpManualChatBotTest extends GuzzleTestCase
     {
         $this->setMockResponse($this->client, array('response-404'));
         $functionName = 'mysql-query';
-        $this->chatBot = new PhpManualChatBot($this->client);
+        $crawler = new Crawler();
+        $this->chatBot = new PhpManualChatBot($this->client, $crawler);
 
         $this->chatBot->lookupFunction($functionName);
     }
