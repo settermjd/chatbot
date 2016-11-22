@@ -75,4 +75,32 @@ class PhpManualChatBotResponse
 
         return $inputFilter->getValue('parameter');
     }
+
+   /**
+    * @return string
+    */
+   public function getVersionInfo() {
+      return $this->versionInfo;
+   }
+
+   /**
+    * @return string
+    */
+   public function getReferenceName() {
+      return $this->referenceName;
+   }
+
+   /**
+    * @return string
+    */
+   public function getMethodSynopsis() {
+      return $this->methodSynopsis;
+   }
+
+   /**
+    * @return string
+    */
+   public function getMethodDescription() {
+      return $this->methodDescription;
+   }
 }
